@@ -1,0 +1,91 @@
+body {
+    font-family: -apple-system, "Arial", "sans-serif";
+    font-weight: 300;
+    color: #313740;
+    background: url("https://i.imgsafe.org/d8a6fd3.jpg");
+}
+
+h3 {
+    font-size: 2em;
+    text-align: center;
+}
+
+h5 {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.toggle-container {
+    padding: 0.5em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    width:240px;
+    border: solid 1px lightgray;
+}
+
+.custom-start-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    border-radius: 50%;
+    background: #2d384b;
+    font-size: 2em;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.4);
+    width: 120px;
+    height: 120px;
+}
+
+.custom-end-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    border-radius: 50%;
+    background: #2d384b;
+    font-size: 2em;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.4);
+    width: 120px;
+    height: 120px;
+}
+
+.custom-header {
+    color: white;
+}
+
+.custom-header h3 {
+    color: white;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.image-body-label {
+    width: 100%;
+    padding:0.5em;
+    color:white;
+    position: absolute;
+    text-align: center;
+    background: black;
+}
+
+.custom-footer {
+    color:white;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    background-color: #313740;
+}
+
+.custom-image-body {
+    background-color: lightgray;
+}
+
+.custom-text-body {
+    font-size: 1.0em;
+    background-color: white;
+    height:200px;
+}
+
+
