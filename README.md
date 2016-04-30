@@ -17,7 +17,9 @@ http://aaron9000.github.io/react-timeline/
 
 
 ####Add to Existing Project
-`npm install react-timeline --save`
+`npm install moment --save` if needed
+`npm install ramda --save` if needed
+`npm install aaron9000/react-timeline --save`
 
 
 ####Usage
