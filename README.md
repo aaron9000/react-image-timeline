@@ -1,6 +1,6 @@
 #React Timeline
 
-A vertical timeline component for React.js. View chronological events in a pleasant way. 
+An image-centric timeline component for React.js. View chronological events in a pleasant way. 
 
 
 ####Features
@@ -11,7 +11,7 @@ A vertical timeline component for React.js. View chronological events in a pleas
 
 
 ####View Example 
-http://aaron9000.github.io/react-timeline/
+http://aaron9000.github.io/react-image-timeline/
 
 -
 
@@ -19,13 +19,13 @@ http://aaron9000.github.io/react-timeline/
 ####Add to Existing Project
 `npm install moment --save` if needed
 `npm install ramda --save` if needed
-`npm install aaron9000/react-timeline --save`
+`npm install aaron9000/react-image-timeline --save`
 
 
 ####Usage
 ```js
 import ReactDOM from 'react-dom';
-import Timeline from 'react-timeline';
+import Timeline from 'react-image-timeline';
 const events = require('events.json'); // See sample data below
 
 ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
@@ -55,7 +55,7 @@ ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
 To pass extra data into custom components, use the `extras` field on the `event` model.
 
 ####Custom Styles
-To customize the timeline styles, add CSS to override [timeline.css](https://github.com/aaron9000/react-timeline/blob/master/lib/timeline.css). 
+To customize the timeline styles, add CSS to override [timeline.css](https://github.com/aaron9000/react-image-timeline/blob/master/lib/timeline.css). 
 
 ####Custom Dot Pattern
 The dots are defined in CSS using a [base64-encoded image](https://www.base64-image.de/). Encode a new image and override the corresponding CSS class.
@@ -96,4 +96,4 @@ npm run test
 ```
 
 ####Screenshot
-![screenshot](https://github.com/aaron9000/react-timeline/blob/master/assets/screenshot.png)
+![screenshot](https://github.com/aaron9000/react-image-timeline/blob/master/assets/screenshot.png)

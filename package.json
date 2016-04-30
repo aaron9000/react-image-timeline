@@ -1,7 +1,7 @@
 {
-  "name": "react-timeline",
+  "name": "react-image-timeline",
   "version": "0.1.0",
-  "description": "react-timeline",
+  "description": "react-image-timeline",
   "main": "index.js",
   "scripts": {
     "example": "node example",
@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/aaron9000/react-timeline.git"
+    "url": "https://github.com/aaron9000/react-image-timeline.git"
   },
   "author": "Aaron Geisler <aaron.geisler.sloth@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/aaron9000/react-timeline/issues"
+    "url": "https://github.com/aaron9000/react-image-timeline/issues"
   },
-  "homepage": "https://github.com/aaron9000/react-timeline/",
+  "homepage": "https://github.com/aaron9000/react-image-timeline/",
   "dependencies": {
   },
   "peerDependencies": {

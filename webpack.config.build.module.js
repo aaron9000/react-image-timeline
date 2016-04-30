@@ -1,6 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
-var library = 'react-timeline';
+var library = 'react-image-timeline';
 
 module.exports = [
     {
@@ -8,7 +8,7 @@ module.exports = [
         entry: './index.js',
         output: {
             path: path.resolve(__dirname, './dist/module'),
-            filename: 'react-timeline.js',
+            filename: 'react-image-timeline.js',
             library: library,
             libraryTarget: 'umd'
         },
@@ -37,7 +37,7 @@ module.exports = [
         entry: './index.js',
         output: {
             path: path.resolve(__dirname, './dist/module'),
-            filename: 'react-timeline.min.js',
+            filename: 'react-image-timeline.min.js',
             library: library,
             libraryTarget: 'umd'
         },
