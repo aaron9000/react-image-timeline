@@ -11,7 +11,7 @@ A vertical timeline component for React.js. View chronological events in a pleas
 
 
 ####View Example 
-http://github.com/aaron9000/react-timeline/github.io
+http://aaron9000.github.io/react-timeline/
 
 -
 
@@ -24,12 +24,12 @@ http://github.com/aaron9000/react-timeline/github.io
 ```js
 import ReactDOM from 'react-dom';
 import Timeline from 'react-timeline';
-const data = require('data.json'); // See sample data below
+const events = require('events.json'); // See sample data below
 
-ReactDOM.render(<Timeline data={data} />, document.getElementById('root'));
+ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
 ```
 
-[See Sample Data](https://gist.github.com/aaron9000/ca9600c9fc2e8c4b9a503b5789413852)
+[Sample Data](https://gist.github.com/aaron9000/ca9600c9fc2e8c4b9a503b5789413852)
 
 
 ####Props
@@ -53,34 +53,32 @@ ReactDOM.render(<Timeline data={data} />, document.getElementById('root'));
 To pass extra data into custom components, use the `extras` field on the `event` model.
 
 ####Custom Styles
-To change the styles, add CSS that the overrides styles in [timeline.css](https://github.com/aaron9000/react-timeline/blob/master/react-timeline/lib/timeline.css). 
+To customize the timeline styles, add CSS to override [timeline.css](https://github.com/aaron9000/react-timeline/blob/master/lib/timeline.css). 
 
 ####Custom Dot Pattern
-The dots are defined in CSS using a [base64-encoded image](https://www.base64-image.de/). Encode a new image and override the corresponding style.
+The dots are defined in CSS using a [base64-encoded image](https://www.base64-image.de/). Encode a new image and override the corresponding CSS class.
 
 ####Custom Components
-For more advanced customization, you can pass in components to replace the defaults. Custom components will be passed an `event` model in props.
+For more advanced customization, you can pass in custom components to replace the defaults. Custom components will be passed an `event` model in props.
 ```js
-render() {
 
-	// A custom header to replace the default
-    const CustomHeader = (props) => {
-    	// The corresponding "event" model
-        const {title, extras} = props.event;
-        
-		// Custom data payload
-		const {customField} = extras;
+// A custom header to replace the default
+const CustomHeader = (props) => {
 
-		// Use your own CSS
-        return <div className="custom-header">
-            <h1>{title}</h1>
-            <p>{customField}</p>
-        </div>;
-    };
-   
-    // Render a timeline using a custom header
-    return <Timeline events={data} customHeader={CustomHeader}/>;
-}
+    // The corresponding "event" model
+    const {title, extras} = props.event;
+    
+    // Custom data payload
+    const {customField} = extras;
+
+    // Use your own CSS
+    return <div className="custom-header">
+        <h1>{title}</h1>
+        <p>{customField}</p>
+    </div>;
+};
+
+ReactDOM.render(<Timeline events={events} customHeader={CustomHeader}/>, document.getElementById('root'));
 ```
 
 ####Run Example Project
