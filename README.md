@@ -1,4 +1,4 @@
-#React Timeline
+#React Image Timeline
 
 An image-centric timeline component for React.js. View chronological events in a pleasant way. 
 
