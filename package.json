@@ -13,6 +13,7 @@
     "type": "git",
     "url": "https://github.com/aaron9000/react-image-timeline.git"
   },
+  "keywords": ["react", "image", "timeline", "moment", "ramda", "component", "time", "line"],
   "author": "Aaron Geisler <aaron.geisler.sloth@gmail.com>",
   "license": "MIT",
   "bugs": {

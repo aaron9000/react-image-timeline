@@ -13,8 +13,6 @@ An image-centric timeline component for React.js. View chronological events in a
 ####View Example 
 http://aaron9000.github.io/react-image-timeline/
 
--
-
 
 ####Add to Existing Project
 - `npm install moment --save` if needed
@@ -88,7 +86,7 @@ ReactDOM.render(<Timeline events={events} customHeader={CustomHeader}/>, documen
 npm install
 npm run example
 ```
-Then, visit [localhost:3000/example](http://localhost:3000/example) in your browser browser.
+Then, visit [localhost:3000/example](http://localhost:3000/example) in your browser.
 
 ####Run Tests
 ```
