@@ -19,7 +19,7 @@ http://aaron9000.github.io/react-image-timeline/
 ####Add to Existing Project
 - `npm install moment --save` if needed
 - `npm install ramda --save` if needed
-- `npm install aaron9000/react-image-timeline --save`
+- `npm install react-image-timeline --save`
 
 
 ####Usage
