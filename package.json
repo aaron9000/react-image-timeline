@@ -1,6 +1,6 @@
 {
   "name": "react-image-timeline",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "react-image-timeline",
   "main": "index.js",
   "scripts": {
@@ -19,8 +19,7 @@
     "url": "https://github.com/aaron9000/react-image-timeline/issues"
   },
   "homepage": "https://github.com/aaron9000/react-image-timeline/",
-  "dependencies": {
-  },
+  "dependencies": {},
   "peerDependencies": {
     "moment": ">= 2.0.0",
     "react": ">= 0.14.0",
