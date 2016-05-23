@@ -1,6 +1,6 @@
 {
   "name": "react-image-timeline",
-  "version": "0.1.0",
+  "version": "0.1.4",
   "description": "react-image-timeline",
   "main": "index.js",
   "scripts": {
@@ -13,14 +13,23 @@
     "type": "git",
     "url": "https://github.com/aaron9000/react-image-timeline.git"
   },
+  "keywords": [
+    "react",
+    "image",
+    "timeline",
+    "moment",
+    "ramda",
+    "component",
+    "time",
+    "line"
+  ],
   "author": "Aaron Geisler <aaron.geisler.sloth@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/aaron9000/react-image-timeline/issues"
   },
   "homepage": "https://github.com/aaron9000/react-image-timeline/",
-  "dependencies": {
-  },
+  "dependencies": {},
   "peerDependencies": {
     "moment": ">= 2.0.0",
     "react": ">= 0.14.0",

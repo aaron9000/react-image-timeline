@@ -10,11 +10,13 @@ $padding: 0.5em;
 $radius: 0.35em;
 $dot-radius: 5%;
 $arrow-offset: 20px;
+$fade-height: 80px;
 $text-color: #313740;
 $label-color: lighten(#2d384b, 15%);
 $event-color: #F0F0F0;
 $button-color: #5592CB;
 $header-color: lighten(#2d384b, 30%);
+$transparent-white: rgba(255, 255, 255, 0);
 
 *, *:after, *:before {
   -webkit-box-sizing: border-box;
@@ -202,6 +204,7 @@ h2 {
   align-items: center;
   justify-content: center;
   margin: 0;
+  width:100%;
   height: auto;
   max-width: 100%;
   max-height: $max-image-height;
@@ -245,11 +248,15 @@ h2 {
   content: '';
   font-weight: lighter;
   width: 100%;
-  height: 100%;
+  height: $fade-height;
   position: absolute;
   left: 0;
-  top: 0;
-  background: linear-gradient(transparent 100px, $event-color);
+  top: $max-copy-height - $fade-height;
+  background: transparent;
+  background: -webkit-linear-gradient($transparent-white, $event-color); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient($transparent-white, $event-color); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient($transparent-white, $event-color); /* For Firefox 3.6 to 15 */
+  background: linear-gradient($transparent-white, $event-color); /* Standard syntax */
 }
 
 
