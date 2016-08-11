@@ -14,12 +14,13 @@
     "url": "https://github.com/aaron9000/react-image-timeline.git"
   },
   "keywords": [
-    "react",
-    "image",
+    "react image timeline",
+    "image timeline",
     "timeline",
-    "moment",
-    "ramda",
+    "react",
     "component",
+    "image",    
+    "ramda",    
     "time",
     "line"
   ],
