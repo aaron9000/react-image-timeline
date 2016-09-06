@@ -68,7 +68,7 @@ export default class TimelineExample extends Component {
                                          customTextBody={CustomTextBody}
                                          customFooter={CustomFooter}/>;
         return <div>
-            <h1>React Image Timeline Example</h1>
+            <h1>React Image Timeline Example (resize me - I'm responsive)</h1>
             <div className="toggle-container">
                 <strong>Use Custom Components:</strong>
                 <input type="checkbox"
