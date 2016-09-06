@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import Timeline from '../lib/timeline';
+import Timeline from '../es5/timeline';
 import {getSampleData} from './data';
 
 const CustomStartLabel = (props) => {

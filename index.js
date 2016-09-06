@@ -1,1 +1,1 @@
-module.exports = require('./lib/timeline');
+module.exports = require('./es5/timeline');
