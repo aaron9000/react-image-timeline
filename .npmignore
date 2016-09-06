@@ -4,6 +4,7 @@ example
 node_modules
 test
 lib
+.idea
 .babelrc
 .gitignore
 example.js
