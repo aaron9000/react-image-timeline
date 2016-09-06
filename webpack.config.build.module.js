@@ -7,7 +7,7 @@ module.exports = [
         devtool: 'source-map',
         entry: './index.js',
         output: {
-            path: path.resolve(__dirname, './dist/module'),
+            path: path.resolve(__dirname, './dist-example/module'),
             filename: 'react-image-timeline.js',
             library: library,
             libraryTarget: 'umd'
@@ -36,7 +36,7 @@ module.exports = [
         devtool: 'source-map',
         entry: './index.js',
         output: {
-            path: path.resolve(__dirname, './dist/module'),
+            path: path.resolve(__dirname, './dist-example/module'),
             filename: 'react-image-timeline.min.js',
             library: library,
             libraryTarget: 'umd'

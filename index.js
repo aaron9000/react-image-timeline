@@ -1,1 +1,1 @@
-module.exports = require('./es5/timeline');
+module.exports = require('./dist/timeline');

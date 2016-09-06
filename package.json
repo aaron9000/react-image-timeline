@@ -1,12 +1,12 @@
 {
   "name": "react-image-timeline",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "react-image-timeline",
   "main": "index.js",
   "scripts": {
     "example": "node example",
-    "build-example": "webpack --config webpack.config.build.example && cp example/index.html dist/example/index.html",
-    "build": "./node_modules/.bin/babel lib --presets es2015,react,stage-0 --out-dir es5 && cp lib/timeline.css es5/timeline.css",
+    "build-example": "webpack --config webpack.config.build.example && cp example/index.html dist-example/index.html",
+    "build": "./node_modules/.bin/babel lib --presets es2015,react,stage-0 --out-dir dist && cp lib/timeline.css dist/timeline.css && cp lib/timeline.scss dist/timeline.scss",
     "prepublish": "npm run build",
     "test": "mocha test/.setup.js test/**/*_test.js --compilers js:babel-register --require ignore-styles"
   },
