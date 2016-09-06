@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react';
-import Timeline from '../lib/timeline';
+import Timeline from '../dist/timeline';
 import {getSampleData} from './data';
+require('../dist/timeline.css');
 
 const CustomStartLabel = (props) => {
     return <div className="custom-start-label">

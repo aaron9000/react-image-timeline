@@ -25,6 +25,7 @@ http://aaron9000.github.io/react-image-timeline/
 import ReactDOM from 'react-dom';
 import Timeline from 'react-image-timeline';
 const events = require('events.json'); // See sample data below
+require('react-image-timeline/dist/timeline.css'); // Alternatively, use your own customized css
 
 ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
 ```

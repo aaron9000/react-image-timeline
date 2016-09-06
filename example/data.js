@@ -17,43 +17,43 @@ dapibus.`;
 const cities = [
     {
         title: 'Berlin, Germany',
-        imageUrl: 'https://i.imgsafe.org/374a0cd.jpg'
+        imageUrl: 'https://s3.amazonaws.com/aaron-cdn/berlin.jpg'
     },
     {
         title: 'Chicago, Illinois',
-        imageUrl: 'https://i.imgsafe.org/395fd43.jpg'
+        imageUrl: 'https://s3.amazonaws.com/aaron-cdn/chicago.jpg'
     },
     {
         title: 'Cairo, Egypt',
-        imageUrl: 'https://i.imgsafe.org/3aaf334.jpg'
+        imageUrl: 'https://s3.amazonaws.com/aaron-cdn/egypt.jpg'
     },
     {
         title: 'London, England',
-        imageUrl: 'https://i.imgsafe.org/3c99646.jpg'
+        imageUrl: 'https://s3.amazonaws.com/aaron-cdn/london.jpg'
     },
     {
         title: 'New York, New York',
-        imageUrl: 'https://i.imgsafe.org/3e0588d.jpg'
+        imageUrl: 'https://s3.amazonaws.com/aaron-cdn/ny.jpg'
     },
     {
         title: 'Paris, France',
-        imageUrl: 'https://i.imgsafe.org/3f0b86c.jpg'
+        imageUrl: 'https://s3.amazonaws.com/aaron-cdn/paris.jpg'
     },
     {
         title: 'Rome, Italy',
-        imageUrl: 'https://i.imgsafe.org/32984c6.jpg'
+        imageUrl: 'https://s3.amazonaws.com/aaron-cdn/rome.jpg'
     },
     {
         title: 'Seoul, South Korea',
-        imageUrl: 'https://i.imgsafe.org/4138ea3.jpg'
+        imageUrl: 'https://s3.amazonaws.com/aaron-cdn/seoul.jpg'
     },
     {
         title: 'Madrid, Spain',
-        imageUrl: 'https://i.imgsafe.org/42f2965.jpg'
+        imageUrl: 'https://s3.amazonaws.com/aaron-cdn/spain.jpg'
     },
     {
         title: 'Tokyo, Japan',
-        imageUrl: 'https://i.imgsafe.org/440a441.jpg'
+        imageUrl: 'https://s3.amazonaws.com/aaron-cdn/tokyo.jpg'
     }
 ];
 

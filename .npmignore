@@ -1,8 +1,9 @@
 assets
-dist
+dist-example
 example
 node_modules
 test
+lib
 .babelrc
 .gitignore
 example.js
