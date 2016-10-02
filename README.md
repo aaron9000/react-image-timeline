@@ -14,6 +14,10 @@ An image-centric timeline component for React.js. View chronological events in a
 http://aaron9000.github.io/react-image-timeline/
 
 
+####Screenshot
+![screenshot](https://github.com/aaron9000/react-image-timeline/blob/master/assets/screenshot.png)
+
+
 ####Add to Existing Project
 - `npm install moment --save` if needed
 - `npm install ramda --save` if needed
@@ -34,21 +38,28 @@ ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
 
 
 ####Props
-- `events`: **array** (required)
-	- `date`: **date** (required)
-	- `title`: **string** (required)
-	- `imageUrl`: **string** (required)
-	- `text`: **string** (required)
-	- `onClick`: **function**
-	- `buttonText`: **string**
-	- `extras`: **object**
-- `reverseOrder`: **boolean**
-- `customStartLabel`: **component**
-- `customEndLabel`: **component**
-- `customHeader`: **component**
-- `customImageBody`: **component**
-- `customTextBody`: **component**
-- `customFooter`: **component**
+                      Key |                     Type |                 Required
+--------------------------|--------------------------|--------------------------
+ `                events` | `          array<Event>` | `              required`
+ `          reverseOrder` | `               boolean` |                         
+ `      customStartLabel` | `             component` |                         
+ `        customEndLabel` | `             component` |                         
+ `          customHeader` | `             component` |                         
+ `       customImageBody` | `             component` |                         
+ `        customTextBody` | `             component` |                         
+ `          customFooter` | `             component` |                         
+
+
+####Event
+                      Key |                     Type |                 Required
+--------------------------|--------------------------|--------------------------
+ `                  date` | `                  date` | `              required`
+ `                 title` | `                string` | `              required`
+ `              imageUrl` | `                string` | `              required`
+ `                  text` | `                string` | `              required`
+ `               onClick` | `              function` |                         
+ `            buttonText` | `                string` |                         
+ `                extras` | `                object` |                         
 
 ####Custom Event Data
 To pass extra data into custom components, use the `extras` field on the `event` model.
@@ -94,5 +105,3 @@ Then, visit [localhost:3000/example](http://localhost:3000/example) in your brow
 npm run test
 ```
 
-####Screenshot
-![screenshot](https://github.com/aaron9000/react-image-timeline/blob/master/assets/screenshot.png)
