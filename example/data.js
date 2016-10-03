@@ -17,43 +17,43 @@ dapibus.`;
 const cities = [
     {
         title: 'Berlin, Germany',
-        imageUrl: 'https://s3.amazonaws.com/aaron-cdn/berlin.jpg'
+        imageUrl: 'https://s3.amazonaws.com/aaron-cdn/react-image-timeline/berlin.jpg'
     },
     {
         title: 'Chicago, Illinois',
-        imageUrl: 'https://s3.amazonaws.com/aaron-cdn/chicago.jpg'
+        imageUrl: 'https://s3.amazonaws.com/aaron-cdn/react-image-timeline/chicago.jpg'
     },
     {
         title: 'Cairo, Egypt',
-        imageUrl: 'https://s3.amazonaws.com/aaron-cdn/egypt.jpg'
+        imageUrl: 'https://s3.amazonaws.com/aaron-cdn/react-image-timeline/egypt.jpg'
     },
     {
         title: 'London, England',
-        imageUrl: 'https://s3.amazonaws.com/aaron-cdn/london.jpg'
+        imageUrl: 'https://s3.amazonaws.com/aaron-cdn/react-image-timeline/london.jpg'
     },
     {
         title: 'New York, New York',
-        imageUrl: 'https://s3.amazonaws.com/aaron-cdn/ny.jpg'
+        imageUrl: 'https://s3.amazonaws.com/aaron-cdn/react-image-timeline/ny.jpg'
     },
     {
         title: 'Paris, France',
-        imageUrl: 'https://s3.amazonaws.com/aaron-cdn/paris.jpg'
+        imageUrl: 'https://s3.amazonaws.com/aaron-cdn/react-image-timeline/paris.jpg'
     },
     {
         title: 'Rome, Italy',
-        imageUrl: 'https://s3.amazonaws.com/aaron-cdn/rome.jpg'
+        imageUrl: 'https://s3.amazonaws.com/aaron-cdn/react-image-timeline/rome.jpg'
     },
     {
         title: 'Seoul, South Korea',
-        imageUrl: 'https://s3.amazonaws.com/aaron-cdn/seoul.jpg'
+        imageUrl: 'https://s3.amazonaws.com/aaron-cdn/react-image-timeline/seoul.jpg'
     },
     {
         title: 'Madrid, Spain',
-        imageUrl: 'https://s3.amazonaws.com/aaron-cdn/spain.jpg'
+        imageUrl: 'https://s3.amazonaws.com/aaron-cdn/react-image-timeline/spain.jpg'
     },
     {
         title: 'Tokyo, Japan',
-        imageUrl: 'https://s3.amazonaws.com/aaron-cdn/tokyo.jpg'
+        imageUrl: 'https://s3.amazonaws.com/aaron-cdn/react-image-timeline/tokyo.jpg'
     }
 ];
 
