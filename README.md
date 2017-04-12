@@ -38,28 +38,28 @@ ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
 
 
 #### Props
-                      Key |                     Type |                 Required
---------------------------|--------------------------|--------------------------
- `                events` | `          array<Event>` | `              required`
- `          reverseOrder` | `               boolean` |                         
- `      customStartLabel` | `             component` |                         
- `        customEndLabel` | `             component` |                         
- `          customHeader` | `             component` |                         
- `       customImageBody` | `             component` |                         
- `        customTextBody` | `             component` |                         
- `          customFooter` | `             component` |                         
+|                      Key |                     Type |                 Required
+|--------------------------|--------------------------|--------------------------|
+| `                events` | `          array<Event>` | `              required` |
+| `          reverseOrder` | `               boolean` |                          |
+| `      customStartLabel` | `             component` |                          |
+| `        customEndLabel` | `             component` |                          | 
+| `          customHeader` | `             component` |                          |
+| `       customImageBody` | `             component` |                          |
+| `        customTextBody` | `             component` |                          |
+| `          customFooter` | `             component` |                          |
 
 
 #### Event
-                      Key |                     Type |                 Required
---------------------------|--------------------------|--------------------------
- `                  date` | `                  date` | `              required`
- `                 title` | `                string` | `              required`
- `              imageUrl` | `                string` | `              required`
- `                  text` | `                string` | `              required`
- `               onClick` | `              function` |                         
- `            buttonText` | `                string` |                         
- `                extras` | `                object` |                         
+|                      Key |                     Type |                 Required|
+|--------------------------|--------------------------|--------------------------|
+| `                  date` | `                  date` | `              required` |
+| `                 title` | `                string` | `              required` |
+| `              imageUrl` | `                string` | `              required` |
+| `                  text` | `                string` | `              required` |
+| `               onClick` | `              function` |                          |
+| `            buttonText` | `                string` |                          |
+| `                extras` | `                object` |                          |
 
 #### Custom Event Data
 To pass extra data into custom components, use the `extras` field on the `event` model.
