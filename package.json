@@ -1,6 +1,6 @@
 {
   "name": "react-image-timeline",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "react-image-timeline",
   "main": "index.js",
   "scripts": {
@@ -53,7 +53,7 @@
     "file-loader": "^0.8.4",
     "ignore-styles": "^1.2.0",
     "jsdom": "^8.0.1",
-    "mocha": "^2.5.3",
+    "mocha": "^5.2.0",
     "moment": "2.22.1",
     "ramda": "^0.20.1",
     "raw-loader": "^0.5.1",
