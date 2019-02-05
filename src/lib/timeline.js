@@ -74,7 +74,7 @@ const ArrowAndDot = props => {
   );
 };
 
-export default class Timeline extends Component {
+class Timeline extends Component {
 
   getStateForProps(props) {
     const { events, reverseOrder } = props;
@@ -199,3 +199,5 @@ Timeline.propTypes = {
   customTextBody: PropTypes.func,
   customFooter: PropTypes.func
 };
+
+export default Timeline;
