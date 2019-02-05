@@ -2,30 +2,25 @@
 
 An image-centric timeline component for React.js. View chronological events in a pleasant way.
 
+![screenshot](https://github.com/aaron9000/react-image-timeline/blob/master/src/assets/screenshot.png)
+
 ***Updated for React 16***
 
-
-#### Features
+### Features
 - Responsive & mobile-friendly
 - Easily customized
 - Lightweight (only CSS and SVG)
 - Only 20kb
 - ***Zero*** extra dependencies
 
-
-#### View Example 
+### View Example 
 http://aaron9000.github.io/react-image-timeline/
 
 
-#### Screenshot
-![screenshot](https://github.com/aaron9000/react-image-timeline/blob/master/src/assets/screenshot.png)
-
-
-#### Add to Existing Project
+### Add to Existing Project
 - `npm install react-image-timeline --save`
 
-
-#### Usage
+### Usage
 ```js
 import ReactDOM from 'react-dom';
 import Timeline from 'react-image-timeline';
@@ -33,9 +28,6 @@ require('react-image-timeline/dist/timeline.css');
 
 ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
 ```
-
-#### Sample Data
-[View Sample Data](https://gist.github.com/aaron9000/ca9600c9fc2e8c4b9a503b5789413852)
 
 
 #### Props
@@ -50,8 +42,7 @@ ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
 |          customTextBody  |               component  |                          |
 |            customFooter  |               component  |                          |
 
-
-#### Event
+### Event
 |                      Key |                     Type |                 Required|
 |--------------------------|--------------------------|--------------------------|
 |                    date  |                    date  |                required  |
@@ -66,17 +57,17 @@ ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
 or
 
 ```js
-[
-    {
-        date: Date.parse("2013-09-27"),
-        text: "Sed leo elit, pellentesque sit amet congue quis, ornare nec lorem.",
-        title: "Cairo, Egypt",
-        imageUrl: "http://github.com/aaron9000/react-image-timeline/src/assets/egypt.jpg"
-    }
-]
+{
+    date: Date.parse("2013-09-27"),
+    text: "Sed leo elit, pellentesque sit amet congue quis, ornare nec lorem.",
+    title: "Cairo, Egypt",
+    imageUrl: "http://github.com/aaron9000/react-image-timeline/src/assets/egypt.jpg"
+}
 ```
 
-#### Custom Event Data
+### Customization
+
+#### Event Metadata
 To pass extra data into custom components, use the `extras` field on the `event` model.
 
 #### Custom Styles
@@ -127,5 +118,3 @@ npm run build
 cd build && python -m SimpleHTTPServer 8000
 open http://localhost:8000
 ```
-
-
