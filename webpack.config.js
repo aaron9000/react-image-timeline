@@ -6,7 +6,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "timline.js",
     library: 'react-image-timeline',
-    libraryTarget: 'umd'
+    libraryTarget: 'commonjs2'
   },
   mode: "production",
   module: {
@@ -15,5 +15,8 @@ module.exports = {
       { test: /\.js$/, use: "babel-loader", exclude: /node_modules/ },
       { test: /\.svg$/, use: "svg-inline-loader" }
     ]
+  },
+  externals: {
+    'react': 'commonjs react' // this line is just to use the React dependency of our parent-testing-project instead of using our own React.
   }
 };
