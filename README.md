@@ -1,13 +1,15 @@
 # React Image Timeline
+***Updated for React 16***
 
-An image-centric timeline component for React.js. View chronological events in a pleasant way. 
+An image-centric timeline component for React.js. View chronological events in a pleasant way.
 
 
 #### Features
 - Responsive & mobile-friendly
 - Easily customized
-- Gracefully handles overflow and non-uniform content
 - Lightweight (only CSS and SVG)
+- Only 20kb
+- ***Zero*** extra dependencies
 
 
 #### View Example 
@@ -15,12 +17,10 @@ http://aaron9000.github.io/react-image-timeline/
 
 
 #### Screenshot
-![screenshot](https://github.com/aaron9000/react-image-timeline/blob/master/assets/screenshot.png)
+![screenshot](https://github.com/aaron9000/react-image-timeline/blob/master/src/assets/screenshot.png)
 
 
 #### Add to Existing Project
-- `npm install moment --save` if needed
-- `npm install ramda --save` if needed
 - `npm install react-image-timeline --save`
 
 
@@ -61,11 +61,22 @@ ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
 |              buttonText  |                  string  |                          |
 |                  extras  |                  object  |                          |
 
+```js
+[
+    {
+        date: Date.parse("2013-09-27"),
+        text: "Sed leo elit, pellentesque sit amet congue quis, ornare nec lorem.",
+        title: "Cairo, Egypt",
+        imageUrl: "http://github.com/aaron9000/react-image-timeline/src/assets/egypt.jpg"
+    }
+]
+```
+
 #### Custom Event Data
 To pass extra data into custom components, use the `extras` field on the `event` model.
 
 #### Custom Styles
-To customize the timeline styles, add CSS to override [timeline.css](https://github.com/aaron9000/react-image-timeline/blob/master/lib/timeline.css). 
+To customize the timeline styles, add CSS to override [timeline.css](https://github.com/aaron9000/react-image-timeline/blob/master/lib/timeline.css).
 
 #### Custom Dot Pattern
 The dots are defined in CSS using a [base64-encoded image](https://www.base64-image.de/). Encode a new image and override the corresponding CSS class.
@@ -95,8 +106,9 @@ ReactDOM.render(<Timeline events={events} customHeader={CustomHeader}/>, documen
 
 #### Run Example Project
 ```
+*clone repository*
 npm install
-npm run example
+npm run start
 ```
 Then, visit [localhost:3000/example](http://localhost:3000/example) in your browser.
 
@@ -104,4 +116,12 @@ Then, visit [localhost:3000/example](http://localhost:3000/example) in your brow
 ```
 npm run test
 ```
+
+#### Build & Run Example Locally
+```
+npm run build
+cd build && python -m SimpleHTTPServer 8000
+open http://localhost:8000
+```
+
 
