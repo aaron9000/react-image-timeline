@@ -2,8 +2,6 @@
 
 An image-centric timeline component for React.js. View chronological events in a pleasant way.
 
-![screenshot](https://github.com/aaron9000/react-image-timeline/blob/master/src/assets/screenshot.png)
-
 ***Updated for React 16***
 
 ### Features
@@ -13,9 +11,10 @@ An image-centric timeline component for React.js. View chronological events in a
 - Only 20kb
 - ***Zero*** extra dependencies
 
-### View Example 
-http://aaron9000.github.io/react-image-timeline/
+![screenshot](https://github.com/aaron9000/react-image-timeline/blob/master/src/assets/screenshot.png)
 
+### View Live Example 
+http://aaron9000.github.io/react-image-timeline/
 
 ### Add to Existing Project
 - `npm install react-image-timeline --save`
@@ -42,7 +41,7 @@ ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
 |          customTextBody  |               component  |                          |
 |            customFooter  |               component  |                          |
 
-### Event
+#### Event
 |                      Key |                     Type |                 Required|
 |--------------------------|--------------------------|--------------------------|
 |                    date  |                    date  |                required  |
@@ -99,22 +98,16 @@ const CustomHeader = (props) => {
 ReactDOM.render(<Timeline events={events} customHeader={CustomHeader}/>, document.getElementById('root'));
 ```
 
+### Scripts
+
 #### Run Example Project
 ```
 *clone repository*
 npm install
 npm run start
 ```
-Then, visit [localhost:3000/example](http://localhost:3000/example) in your browser.
 
 #### Run Tests
 ```
 npm run test
-```
-
-#### Build & Run Example Locally
-```
-npm run build
-cd build && python -m SimpleHTTPServer 8000
-open http://localhost:8000
 ```
