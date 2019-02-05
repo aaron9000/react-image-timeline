@@ -1,0 +1,16 @@
+Key,Type,Required
+events,array,required
+reverseOrder,boolean,
+customStartLabel,component,
+customEndLabel,component,
+customHeader,component,
+customImageBody,component,
+customTextBody,component,
+customFooter,component,
+date,date,required
+title,string,required
+imageUrl,string,required
+text,string,required
+onClick,function,
+buttonText,string,
+extras,object,
