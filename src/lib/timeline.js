@@ -3,14 +3,26 @@ import PropTypes from "prop-types";
 import { ReactComponent as Arrow } from "./arrow.svg";
 import { ReactComponent as Dot } from "./dot.svg";
 
+const formattedYear = date => {
+  return date ? String(date.getFullYear()) : '';
+};
+
+const formattedDate = date => {
+  const day = String(date.getDate());
+  const month = String(date.getMonth() + 1);
+  const year = String(date.getFullYear());
+  return date ? `${day.length > 1 ? day : '0' + day}-${month.length > 1 ? month : '0' + month}-${year}` : '';
+}
+
 const DefaultStartLabel = props => {
   const { event } = props;
-  return <div className="rt-label">{event.date.getYear()}</div>;
+  console.log(event.date.getYear());
+  return <div className="rt-label">{formattedYear(event.date)}</div>;
 };
 
 const DefaultEndLabel = props => {
   const { event } = props;
-  return <div className="rt-label">{event.date.getYear()}</div>;
+  return <div className="rt-label">{formattedYear(event.date)}</div>;
 };
 
 const DefaultHeader = props => {
@@ -18,7 +30,7 @@ const DefaultHeader = props => {
   return (
     <div>
       <h2 className="rt-title">{title}</h2>
-      <p className="rt-date">{date.getYear()}</p>
+      <p className="rt-date">{formattedDate(date)}</p>
     </div>
   );
 };
