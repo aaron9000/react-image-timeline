@@ -1,1 +1,1 @@
-module.exports = require('./src/lib/timeline');
+module.exports = require('./dist/index');

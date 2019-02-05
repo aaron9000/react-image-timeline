@@ -9,10 +9,8 @@ lib
 .gitignore
 example.js
 index.js
-README.md
 server.js
 webpack.*% 
-README.md
 webpack.*
 public
 build
