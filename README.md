@@ -1,7 +1,8 @@
 # React Image Timeline
-***Updated for React 16***
 
 An image-centric timeline component for React.js. View chronological events in a pleasant way.
+
+***Updated for React 16***
 
 
 #### Features
@@ -40,7 +41,7 @@ ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
 #### Props
 |                      Key |                     Type |                 Required
 |--------------------------|--------------------------|--------------------------|
-|                  events  |            array<Event>  |                required  |
+|                  events  |        array of "Event"  |                required  |
 |            reverseOrder  |                 boolean  |                          |
 |        customStartLabel  |               component  |                          |
 |          customEndLabel  |               component  |                          | 
@@ -60,6 +61,9 @@ ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
 |                 onClick  |                function  |                          |
 |              buttonText  |                  string  |                          |
 |                  extras  |                  object  |                          |
+
+
+or
 
 ```js
 [
