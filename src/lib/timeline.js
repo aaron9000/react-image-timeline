@@ -16,7 +16,6 @@ const formattedDate = date => {
 
 const DefaultStartLabel = props => {
   const { event } = props;
-  console.log(event.date.getYear());
   return <div className="rt-label">{formattedYear(event.date)}</div>;
 };
 
