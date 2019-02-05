@@ -1,10 +1,12 @@
 const path = require("path");
 
 module.exports = {
-  entry: "./index.js",
+  entry: "./src/lib/timeline.js",
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "index.js"
+    filename: "timline.js",
+    library: 'react-image-timeline',
+    libraryTarget: 'umd'
   },
   mode: "production",
   module: {
