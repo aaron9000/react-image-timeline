@@ -53,14 +53,14 @@ ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
 |                  extras  |                  object  |                          |
 
 
-or
+#### Sample Event
 
 ```js
 {
     date: Date.parse("2013-09-27"),
     text: "Sed leo elit, pellentesque sit amet congue quis, ornare nec lorem.",
     title: "Cairo, Egypt",
-    imageUrl: "http://github.com/aaron9000/react-image-timeline/src/assets/egypt.jpg"
+    imageUrl: "http://github.com/aaron9000/react-image-timeline/src/assets/egypt.jpg?raw=true"
 }
 ```
 

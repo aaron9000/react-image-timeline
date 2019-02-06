@@ -1,17 +1,30 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { ReactComponent as Arrow } from "./arrow.svg";
-import { ReactComponent as Dot } from "./dot.svg";
 
 const formattedYear = date => {
-  return date ? String(date.getFullYear()) : '';
+  return date ? String(date.getFullYear()) : '-';
 };
 
 const formattedDate = date => {
+  if (!date) return '-';
   const day = String(date.getDate());
   const month = String(date.getMonth() + 1);
   const year = String(date.getFullYear());
-  return date ? `${day.length > 1 ? day : '0' + day}-${month.length > 1 ? month : '0' + month}-${year}` : '';
+  return `${day.length > 1 ? day : '0' + day}-${month.length > 1 ? month : '0' + month}-${year}`;
+}
+
+const Dot = props => {
+  return <svg className="rt-dot" viewBox="0 0 8 10">
+    <circle cx="4" cy="5" r="3" stroke="none" />
+  </svg>
+};
+
+const Arrow = props => {
+  return <svg className="rt-arrow" viewBox="0 0 6 8">
+    <g>
+        <path d="M 0 0 L 6 4 L 0 8 L 0 0" />
+    </g>
+  </svg>
 }
 
 const DefaultStartLabel = props => {
@@ -42,7 +55,7 @@ const DefaultFooter = props => {
   };
   return (
     <button className="rt-btn" href="#" onClick={handleClick}>
-      {buttonText || "Default Text"}
+      {buttonText || ""}
     </button>
   );
 };
@@ -68,8 +81,8 @@ const DefaultImageBody = props => {
 const ArrowAndDot = props => {
   return (
     <div className="rt-svg-container">
-      <Arrow className="rt-arrow" />
-      <Dot className="rt-dot" />
+      <Arrow />
+      <Dot />
     </div>
   );
 };
