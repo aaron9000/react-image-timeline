@@ -11,7 +11,7 @@ An image-centric timeline component for React.js. View chronological events in a
 - Only 20kb
 - ***Zero*** extra dependencies
 
-![screenshot](https://github.com/aaron9000/react-image-timeline/blob/master/src/assets/screenshot.png)
+![screenshot](https://github.com/aaron9000/react-image-timeline/blob/master/public/screenshot.png)
 
 ### View Live Example 
 http://aaron9000.github.io/react-image-timeline/
@@ -60,7 +60,7 @@ ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
     date: Date.parse("2013-09-27"),
     text: "Sed leo elit, pellentesque sit amet congue quis, ornare nec lorem.",
     title: "Cairo, Egypt",
-    imageUrl: "http://github.com/aaron9000/react-image-timeline/src/assets/egypt.jpg?raw=true"
+    imageUrl: "http://github.com/aaron9000/react-image-timeline/blob/master/src/assets/cairo.jpg?raw=true"
 }
 ```
 
@@ -70,7 +70,7 @@ ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
 To pass extra data into custom components, use the `extras` field on the `event` model.
 
 #### Custom Styles
-To customize the timeline styles, add CSS to override [timeline.css](https://github.com/aaron9000/react-image-timeline/blob/master/lib/timeline.css).
+To customize the timeline styles, add CSS to override [timeline.scss](https://github.com/aaron9000/react-image-timeline/blob/master/src/lib/timeline.scss).
 
 #### Custom Dot Pattern
 The dots are defined in CSS using a [base64-encoded image](https://www.base64-image.de/). Encode a new image and override the corresponding CSS class.
