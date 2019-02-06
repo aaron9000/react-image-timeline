@@ -11,7 +11,7 @@ An image-centric timeline component for React.js. View chronological events in a
 - Only 20kb
 - ***Zero*** extra dependencies
 
-![screenshot](https://github.com/aaron9000/react-image-timeline/blob/master/public/screenshot.png)
+![screenshot](https://github.com/aaron9000/react-image-timeline/blob/master/public/screenshot.png?raw=true)
 
 ### View Live Example 
 http://aaron9000.github.io/react-image-timeline/
