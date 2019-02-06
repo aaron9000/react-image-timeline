@@ -1,6 +1,6 @@
 assets
 dist-example
-example
+src
 node_modules
 test
 lib
@@ -9,6 +9,8 @@ lib
 .gitignore
 example.js
 index.js
-README.md
 server.js
+webpack.*% 
 webpack.*
+public
+build

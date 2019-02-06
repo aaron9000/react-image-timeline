@@ -1,30 +1,25 @@
 # React Image Timeline
 
-An image-centric timeline component for React.js. View chronological events in a pleasant way. 
+An image-centric timeline component for React.js. View chronological events in a pleasant way.
 
+***Updated for React 16***
 
-#### Features
+### Features
 - Responsive & mobile-friendly
 - Easily customized
-- Gracefully handles overflow and non-uniform content
 - Lightweight (only CSS and SVG)
+- Only 20kb
+- ***Zero*** extra dependencies
 
+![screenshot](https://github.com/aaron9000/react-image-timeline/blob/master/src/assets/screenshot.png)
 
-#### View Example 
+### View Live Example 
 http://aaron9000.github.io/react-image-timeline/
 
-
-#### Screenshot
-![screenshot](https://github.com/aaron9000/react-image-timeline/blob/master/assets/screenshot.png)
-
-
-#### Add to Existing Project
-- `npm install moment --save` if needed
-- `npm install ramda --save` if needed
+### Add to Existing Project
 - `npm install react-image-timeline --save`
 
-
-#### Usage
+### Usage
 ```js
 import ReactDOM from 'react-dom';
 import Timeline from 'react-image-timeline';
@@ -33,14 +28,11 @@ require('react-image-timeline/dist/timeline.css');
 ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
 ```
 
-#### Sample Data
-[View Sample Data](https://gist.github.com/aaron9000/ca9600c9fc2e8c4b9a503b5789413852)
-
 
 #### Props
 |                      Key |                     Type |                 Required
 |--------------------------|--------------------------|--------------------------|
-|                  events  |            array<Event>  |                required  |
+|                  events  |        array of "Event"  |                required  |
 |            reverseOrder  |                 boolean  |                          |
 |        customStartLabel  |               component  |                          |
 |          customEndLabel  |               component  |                          | 
@@ -48,7 +40,6 @@ ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
 |         customImageBody  |               component  |                          |
 |          customTextBody  |               component  |                          |
 |            customFooter  |               component  |                          |
-
 
 #### Event
 |                      Key |                     Type |                 Required|
@@ -61,11 +52,25 @@ ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
 |              buttonText  |                  string  |                          |
 |                  extras  |                  object  |                          |
 
-#### Custom Event Data
+
+#### Sample Event
+
+```js
+{
+    date: Date.parse("2013-09-27"),
+    text: "Sed leo elit, pellentesque sit amet congue quis, ornare nec lorem.",
+    title: "Cairo, Egypt",
+    imageUrl: "http://github.com/aaron9000/react-image-timeline/src/assets/egypt.jpg?raw=true"
+}
+```
+
+### Customization
+
+#### Event Metadata
 To pass extra data into custom components, use the `extras` field on the `event` model.
 
 #### Custom Styles
-To customize the timeline styles, add CSS to override [timeline.css](https://github.com/aaron9000/react-image-timeline/blob/master/lib/timeline.css). 
+To customize the timeline styles, add CSS to override [timeline.css](https://github.com/aaron9000/react-image-timeline/blob/master/lib/timeline.css).
 
 #### Custom Dot Pattern
 The dots are defined in CSS using a [base64-encoded image](https://www.base64-image.de/). Encode a new image and override the corresponding CSS class.
@@ -93,15 +98,16 @@ const CustomHeader = (props) => {
 ReactDOM.render(<Timeline events={events} customHeader={CustomHeader}/>, document.getElementById('root'));
 ```
 
+### Scripts
+
 #### Run Example Project
 ```
+*clone repository*
 npm install
-npm run example
+npm run start
 ```
-Then, visit [localhost:3000/example](http://localhost:3000/example) in your browser.
 
 #### Run Tests
 ```
 npm run test
 ```
-
