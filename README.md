@@ -57,7 +57,7 @@ ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
 
 ```js
 {
-    date: Date.parse("2013-09-27"),
+    date: new Date("2013-09-27"),
     text: "Sed leo elit, pellentesque sit amet congue quis, ornare nec lorem.",
     title: "Cairo, Egypt",
     imageUrl: "http://github.com/aaron9000/react-image-timeline/blob/master/src/assets/cairo.jpg?raw=true"
