@@ -1,10 +1,10 @@
-# React Image Timeline
-
 [![CircleCI](https://circleci.com/gh/aaron9000/react-image-timeline/tree/ci-and-validation.svg?style=svg)](https://circleci.com/gh/aaron9000/react-image-timeline/tree/ci-and-validation)
+
+# React Image Timeline
 
 An image-centric timeline component for React.js. View chronological events in a pleasant way.
 
-***Updated for React 16***
+***v2.0.0 (React 16)***
 
 ### Features
 - Responsive & mobile-friendly
@@ -31,14 +31,14 @@ ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
 ```
 
 #### Props
-|                      Key |                     Type |                 Required
+|                      Key |                     Type |                Required?
 |--------------------------|--------------------------|--------------------------|
-|                  events  |        array of "Event"  |                required  |
+|                  events  |        array of "Event"  |                     Yes  |
 |        customComponents  |      "CustomComponents"  |                          |
 |            reverseOrder  |                 boolean  |                          |
 
 #### CustomComponents
-|                      Key |                     Type |                 Required
+|                      Key |                     Type |                Required?
 |--------------------------|--------------------------|--------------------------|
 |                topLabel  |               component  |                          |
 |             bottomLabel  |               component  |                          | 
@@ -48,12 +48,12 @@ ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
 |                  footer  |               component  |                          |
 
 #### Event
-|                      Key |                     Type |                 Required|
+|                      Key |                     Type |                Required?
 |--------------------------|--------------------------|--------------------------|
-|                    date  |                    date  |                required  |
-|                   title  |                  string  |                required  |
-|                imageUrl  |                  string  |                required  |
-|                    text  |                  string  |                required  |
+|                    date  |                    date  |                     Yes  |
+|                   title  |                  string  |                     Yes  |
+|                imageUrl  |                  string  |                     Yes  |
+|                    text  |                  string  |                     Yes  |
 |                 onClick  |                function  |                          |
 |              buttonText  |                  string  |                          |
 |                  extras  |                  object  |                          |
