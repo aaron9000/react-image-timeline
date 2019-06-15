@@ -122,7 +122,7 @@ describe("<Timeline />", () => {
         ).to.equal('<li class="rt-label-container"><div class="rt-label">2010</div></li>');
     });
 
-    it("renders revesred labels", () => {
+    it("renders reversed labels", () => {
       const wrapper = shallow(<Timeline events={SHUFFLED_EVENTS} reverseOrder={true}/>);
       expect(
         wrapper
