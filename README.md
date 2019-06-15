@@ -1,5 +1,7 @@
 # React Image Timeline
 
+[![CircleCI](https://circleci.com/gh/aaron9000/react-image-timeline/tree/ci-and-validation.svg?style=svg)](https://circleci.com/gh/aaron9000/react-image-timeline/tree/ci-and-validation)
+
 An image-centric timeline component for React.js. View chronological events in a pleasant way.
 
 ***Updated for React 16***
@@ -33,13 +35,18 @@ ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
 |                      Key |                     Type |                 Required
 |--------------------------|--------------------------|--------------------------|
 |                  events  |        array of "Event"  |                required  |
+|        customComponents  |      "CustomComponents"  |                          |
 |            reverseOrder  |                 boolean  |                          |
-|        customStartLabel  |               component  |                          |
-|          customEndLabel  |               component  |                          | 
-|            customHeader  |               component  |                          |
-|         customImageBody  |               component  |                          |
-|          customTextBody  |               component  |                          |
-|            customFooter  |               component  |                          |
+
+#### CustomComponents
+|                      Key |                     Type |                 Required
+|--------------------------|--------------------------|--------------------------|
+|                topLabel  |               component  |                          |
+|             bottomLabel  |               component  |                          | 
+|                  header  |               component  |                          |
+|               imageBody  |               component  |                          |
+|                textBody  |               component  |                          |
+|                  footer  |               component  |                          |
 
 #### Event
 |                      Key |                     Type |                 Required|
@@ -57,7 +64,7 @@ ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
 
 ```js
 {
-    date: new Date("2013-09-27"),
+    date: new Date(2013, 9, 27),
     text: "Sed leo elit, pellentesque sit amet congue quis, ornare nec lorem.",
     title: "Cairo, Egypt",
     imageUrl: "http://github.com/aaron9000/react-image-timeline/blob/master/src/assets/cairo.jpg?raw=true"
@@ -95,7 +102,7 @@ const CustomHeader = (props) => {
     </div>;
 };
 
-ReactDOM.render(<Timeline events={events} customHeader={CustomHeader}/>, document.getElementById('root'));
+ReactDOM.render(<Timeline events={events} customComponents={{header: CustomHeader}}/>, document.getElementById('root'));
 ```
 
 ### Scripts
