@@ -1,12 +1,11 @@
 {
-  "main.css": "/react-image-timeline/static/css/main.c8b22339.chunk.css",
-  "main.js": "/react-image-timeline/static/js/main.d83f8160.chunk.js",
-  "main.js.map": "/react-image-timeline/static/js/main.d83f8160.chunk.js.map",
+  "main.css": "/react-image-timeline/static/css/main.1780a326.chunk.css",
+  "main.js": "/react-image-timeline/static/js/main.0f88b195.chunk.js",
+  "main.js.map": "/react-image-timeline/static/js/main.0f88b195.chunk.js.map",
   "static/js/1.f53841e4.chunk.js": "/react-image-timeline/static/js/1.f53841e4.chunk.js",
   "static/js/1.f53841e4.chunk.js.map": "/react-image-timeline/static/js/1.f53841e4.chunk.js.map",
   "runtime~main.js": "/react-image-timeline/static/js/runtime~main.0d96011d.js",
   "runtime~main.js.map": "/react-image-timeline/static/js/runtime~main.0d96011d.js.map",
-  "static/media/dot.fe4d0cf8.svg": "/react-image-timeline/static/media/dot.fe4d0cf8.svg",
   "static/media/berlin.jpg": "/react-image-timeline/static/media/berlin.ce25fae9.jpg",
   "static/media/cairo.jpg": "/react-image-timeline/static/media/cairo.93047add.jpg",
   "static/media/london.jpg": "/react-image-timeline/static/media/london.45d6bed0.jpg",
@@ -16,10 +15,9 @@
   "static/media/seoul.jpg": "/react-image-timeline/static/media/seoul.3226472f.jpg",
   "static/media/tokyo.jpg": "/react-image-timeline/static/media/tokyo.db715524.jpg",
   "static/media/madrid.jpg": "/react-image-timeline/static/media/madrid.a2269ec3.jpg",
-  "static/media/arrow.01d4d3d5.svg": "/react-image-timeline/static/media/arrow.01d4d3d5.svg",
   "static/media/chicago.jpg": "/react-image-timeline/static/media/chicago.4ce82aac.jpg",
-  "static/css/main.c8b22339.chunk.css.map": "/react-image-timeline/static/css/main.c8b22339.chunk.css.map",
+  "static/css/main.1780a326.chunk.css.map": "/react-image-timeline/static/css/main.1780a326.chunk.css.map",
   "index.html": "/react-image-timeline/index.html",
-  "precache-manifest.29b9a23b271ee245421e85df784ff2c7.js": "/react-image-timeline/precache-manifest.29b9a23b271ee245421e85df784ff2c7.js",
+  "precache-manifest.451d9e99852b6c4508f540c8e10829bc.js": "/react-image-timeline/precache-manifest.451d9e99852b6c4508f540c8e10829bc.js",
   "service-worker.js": "/react-image-timeline/service-worker.js"
 }

@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "0ffaa772ab1e8bbd954cb2c6bf0c8f44",
-    "url": "/react-image-timeline/static/media/ny.0ffaa772.jpg"
+    "revision": "45d6bed08b2caaca9d141287bf21af2e",
+    "url": "/react-image-timeline/static/media/london.45d6bed0.jpg"
   },
   {
-    "revision": "d83f816091ee81eac576",
-    "url": "/react-image-timeline/static/css/main.c8b22339.chunk.css"
+    "revision": "0f88b195353bbe99daa1",
+    "url": "/react-image-timeline/static/css/main.1780a326.chunk.css"
   },
   {
     "revision": "f53841e43821f1090373",
@@ -28,12 +28,12 @@ self.__precacheManifest = [
     "url": "/react-image-timeline/static/media/cairo.93047add.jpg"
   },
   {
-    "revision": "45d6bed08b2caaca9d141287bf21af2e",
-    "url": "/react-image-timeline/static/media/london.45d6bed0.jpg"
+    "revision": "0f88b195353bbe99daa1",
+    "url": "/react-image-timeline/static/js/main.0f88b195.chunk.js"
   },
   {
-    "revision": "d83f816091ee81eac576",
-    "url": "/react-image-timeline/static/js/main.d83f8160.chunk.js"
+    "revision": "0ffaa772ab1e8bbd954cb2c6bf0c8f44",
+    "url": "/react-image-timeline/static/media/ny.0ffaa772.jpg"
   },
   {
     "revision": "ce64ef1a35f7b4bc90cfa5ac29013f0e",
@@ -56,15 +56,7 @@ self.__precacheManifest = [
     "url": "/react-image-timeline/static/media/madrid.a2269ec3.jpg"
   },
   {
-    "revision": "01d4d3d58db24de6e9a44d492a2c8455",
-    "url": "/react-image-timeline/static/media/arrow.01d4d3d5.svg"
-  },
-  {
-    "revision": "fe4d0cf8e03d8d45cb11deb54ec34400",
-    "url": "/react-image-timeline/static/media/dot.fe4d0cf8.svg"
-  },
-  {
-    "revision": "6dde399ef7e9c98e0eb1756dad5dc62a",
+    "revision": "8637608641cdf0b392e75b673b3128c2",
     "url": "/react-image-timeline/index.html"
   }
 ];
