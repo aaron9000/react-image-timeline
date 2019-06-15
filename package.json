@@ -32,8 +32,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build-module": "node-sass src/lib/timeline.scss dist/timeline.css && webpack",
-    "predeploy": "yarn build",
-    "deploy": "gh-pages -d build"
+    "build-and-publish": "npm version patch && npm run build-module && npm publish",
+    "deploy-gh-pages": "gh-pages -d build",
+    "build-and-deploy": "npm run build && npm run deploy-gh-pages"
   },
   "eslintConfig": {
     "extends": "react-app"

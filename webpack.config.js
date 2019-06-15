@@ -4,7 +4,7 @@ module.exports = {
   entry: "./src/lib/timeline.js",
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "timline.js",
+    filename: "timeline.js",
     library: 'react-image-timeline',
     libraryTarget: 'commonjs2'
   },
