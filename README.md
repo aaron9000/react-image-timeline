@@ -4,7 +4,7 @@
 
 An image-centric timeline component for React.js. View chronological events in a pleasant way.
 
-***v2.0.1 (React 16)***
+***v2.0.3 (React 16)***
 
 ### Features
 - Responsive & mobile-friendly
