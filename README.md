@@ -30,7 +30,6 @@ require('react-image-timeline/dist/timeline.css');
 ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
 ```
 
-
 #### Props
 |                      Key |                     Type |                 Required
 |--------------------------|--------------------------|--------------------------|
@@ -91,7 +90,7 @@ const CustomHeader = (props) => {
 
     // The corresponding "event" model
     const {title, extras} = props.event;
-    
+
     // Custom data payload
     const {customField} = extras;
 

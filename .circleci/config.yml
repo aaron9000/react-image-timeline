@@ -17,4 +17,4 @@ workflows:
   version: 2
   workflow:
     jobs:
-    - test_rit
+    - run_tests
