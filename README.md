@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/aaron9000/react-image-timeline/tree/ci-and-validation.svg?style=svg)](https://circleci.com/gh/aaron9000/react-image-timeline/tree/ci-and-validation)
+[![CircleCI](https://circleci.com/gh/aaron9000/react-image-timeline/tree/master.svg?style=svg)](https://circleci.com/gh/aaron9000/react-image-timeline/tree/master)
 
 # React Image Timeline
 
