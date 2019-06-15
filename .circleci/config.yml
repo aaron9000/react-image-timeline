@@ -10,7 +10,7 @@ jobs:
         command: /sbin/init
     steps:
       - checkout
-      - run: npm install --dev
+      - run: npm install --only=dev
       - run: npm test
 
 workflows:

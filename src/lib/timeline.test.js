@@ -10,21 +10,21 @@ const SHUFFLED_EVENTS = [
     title: "LAST",
     imageUrl: "LAST",
     text: "LAST",
-    date: new Date("2010-01-01"),
+    date: new Date(2010, 1, 11),
     extras: { foo: "bar" }
   },
   {
     title: "FIRST",
     imageUrl: "FIRST",
     text: "FIRST",
-    date: new Date("2000-01-01"),
+    date: new Date(2000, 1, 11),
     extras: { foo: "bar" }
   },
   {
     title: "MIDDLE",
     imageUrl: "MIDDLE",
     text: "MIDDLE",
-    date: new Date("2005-01-01"),
+    date: new Date(2005, 1, 11),
     extras: { foo: "bar" }
   }
 ];
@@ -113,13 +113,13 @@ describe("<Timeline />", () => {
           .find("li")
           .first()
           .html()
-      ).to.equal('<li class="rt-label-container"><div class="rt-label">1999</div></li>');
+      ).to.equal('<li class="rt-label-container"><div class="rt-label">2000</div></li>');
       expect(
         wrapper
           .find("li")
           .last()
           .html()
-        ).to.equal('<li class="rt-label-container"><div class="rt-label">2009</div></li>');
+        ).to.equal('<li class="rt-label-container"><div class="rt-label">2010</div></li>');
     });
 
     it("renders revesred labels", () => {
@@ -129,13 +129,13 @@ describe("<Timeline />", () => {
           .find("li")
           .first()
           .html()
-      ).to.equal('<li class="rt-label-container"><div class="rt-label">2009</div></li>');
+      ).to.equal('<li class="rt-label-container"><div class="rt-label">2010</div></li>');
       expect(
         wrapper
           .find("li")
           .last()
           .html()
-        ).to.equal('<li class="rt-label-container"><div class="rt-label">1999</div></li>');
+        ).to.equal('<li class="rt-label-container"><div class="rt-label">2000</div></li>');
     });
   });
 
