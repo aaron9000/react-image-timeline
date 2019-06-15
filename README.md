@@ -1,8 +1,10 @@
+[![CircleCI](https://circleci.com/gh/aaron9000/react-image-timeline/tree/master.svg?style=svg)](https://circleci.com/gh/aaron9000/react-image-timeline/tree/master)
+
 # React Image Timeline
 
 An image-centric timeline component for React.js. View chronological events in a pleasant way.
 
-***Updated for React 16***
+***v2.0.0 (React 16)***
 
 ### Features
 - Responsive & mobile-friendly
@@ -28,26 +30,30 @@ require('react-image-timeline/dist/timeline.css');
 ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
 ```
 
-
 #### Props
-|                      Key |                     Type |                 Required
+|                      Key |                     Type |                Required?
 |--------------------------|--------------------------|--------------------------|
-|                  events  |        array of "Event"  |                required  |
+|                  events  |        array of "Event"  |                     Yes  |
+|        customComponents  |      "CustomComponents"  |                          |
 |            reverseOrder  |                 boolean  |                          |
-|        customStartLabel  |               component  |                          |
-|          customEndLabel  |               component  |                          | 
-|            customHeader  |               component  |                          |
-|         customImageBody  |               component  |                          |
-|          customTextBody  |               component  |                          |
-|            customFooter  |               component  |                          |
+
+#### CustomComponents
+|                      Key |                     Type |                Required?
+|--------------------------|--------------------------|--------------------------|
+|                topLabel  |               component  |                          |
+|             bottomLabel  |               component  |                          | 
+|                  header  |               component  |                          |
+|               imageBody  |               component  |                          |
+|                textBody  |               component  |                          |
+|                  footer  |               component  |                          |
 
 #### Event
-|                      Key |                     Type |                 Required|
+|                      Key |                     Type |                Required?
 |--------------------------|--------------------------|--------------------------|
-|                    date  |                    date  |                required  |
-|                   title  |                  string  |                required  |
-|                imageUrl  |                  string  |                required  |
-|                    text  |                  string  |                required  |
+|                    date  |                    date  |                     Yes  |
+|                   title  |                  string  |                     Yes  |
+|                imageUrl  |                  string  |                     Yes  |
+|                    text  |                  string  |                     Yes  |
 |                 onClick  |                function  |                          |
 |              buttonText  |                  string  |                          |
 |                  extras  |                  object  |                          |
@@ -57,7 +63,7 @@ ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
 
 ```js
 {
-    date: new Date("2013-09-27"),
+    date: new Date(2013, 9, 27),
     text: "Sed leo elit, pellentesque sit amet congue quis, ornare nec lorem.",
     title: "Cairo, Egypt",
     imageUrl: "http://github.com/aaron9000/react-image-timeline/blob/master/src/assets/cairo.jpg?raw=true"
@@ -84,7 +90,7 @@ const CustomHeader = (props) => {
 
     // The corresponding "event" model
     const {title, extras} = props.event;
-    
+
     // Custom data payload
     const {customField} = extras;
 
@@ -95,10 +101,10 @@ const CustomHeader = (props) => {
     </div>;
 };
 
-ReactDOM.render(<Timeline events={events} customHeader={CustomHeader}/>, document.getElementById('root'));
+ReactDOM.render(<Timeline events={events} customComponents={{header: CustomHeader}}/>, document.getElementById('root'));
 ```
 
-### Scripts
+---
 
 #### Run Example Project
 ```
@@ -109,5 +115,6 @@ npm run start
 
 #### Run Tests
 ```
+*clone repository*
 npm run test
 ```

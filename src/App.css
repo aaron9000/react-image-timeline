@@ -1,8 +1,8 @@
 body {
-  font-family: -apple-system, "Arial", "sans-serif";
+  font-family: -apple-system, 'Arial', 'sans-serif';
   font-weight: 300;
   color: #313740;
-  background: url("./assets/background-texture.jpg");
+  background: url('./assets/background-texture.jpg');
 }
 
 h3 {
@@ -19,11 +19,11 @@ h5 {
   padding: 0.5em;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
-  width:240px;
+  width: 240px;
   border: solid 1px lightgray;
 }
 
-.custom-start-label {
+.custom-top-label {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,7 +37,7 @@ h5 {
   height: 120px;
 }
 
-.custom-end-label {
+.custom-bottom-label {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,15 +63,15 @@ h5 {
 
 .image-body-label {
   width: 100%;
-  padding:0.5em;
-  color:white;
+  padding: 0.5em;
+  color: white;
   position: absolute;
   text-align: center;
   background: black;
 }
 
 .custom-footer {
-  color:white;
+  color: white;
   font-weight: bold;
   width: 100%;
   text-align: center;
@@ -83,7 +83,7 @@ h5 {
 }
 
 .custom-text-body {
-  font-size: 1.0em;
+  font-size: 1em;
   background-color: white;
-  height:200px;
+  height: 200px;
 }

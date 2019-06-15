@@ -1,21 +1,21 @@
-import React, { Component } from "react";
-import "./App.css";
-import "./lib/timeline.scss";
-import Timeline from "./lib/timeline";
-import { getSampleData } from "./data";
+import React, { Component } from 'react';
+import './App.css';
+import './lib/timeline.scss';
+import Timeline from './lib/timeline';
+import { getSampleData } from './data';
 
-const CustomStartLabel = props => {
+const CustomTopLabel = props => {
   return (
-    <div className="custom-start-label">
-      <p>Start Label</p>
+    <div className="custom-top-label">
+      <p>Top Label</p>
     </div>
   );
 };
 
-const CustomEndLabel = props => {
+const CustomBottomLabel = props => {
   return (
-    <div className="custom-end-label">
-      <p>End Label</p>
+    <div className="custom-bottom-label">
+      <p>Bottom Label</p>
     </div>
   );
 };
@@ -55,45 +55,52 @@ const CustomImageBody = props => {
 };
 
 class TimelineExample extends Component {
-  static displayName = "TimelineExample";
+  static displayName = 'TimelineExample';
   static propTypes = {};
 
   constructor(props) {
     super(props);
     this.state = {
       events: getSampleData(),
-      useCustomComponents: false
+      useCustomComponents: false,
+      reverseOrder: false,
     };
   }
 
-  handleToggle(event) {
+  handleToggleUseCustomComponents(event) {
     this.setState({ useCustomComponents: event.target.checked });
+  }
+  handleToggleReverseOrder(event) {
+    this.setState({ reverseOrder: event.target.checked });
   }
 
   render() {
-    const { events, useCustomComponents } = this.state;
-    const timeline = <Timeline events={events} />;
-    const customTimeline = (
-      <Timeline
-        events={events}
-        customStartLabel={CustomStartLabel}
-        customEndLabel={CustomEndLabel}
-        customHeader={CustomHeader}
-        customImageBody={CustomImageBody}
-        customTextBody={CustomTextBody}
-        customFooter={CustomFooter}
-      />
-    );
+    const { events, useCustomComponents, reverseOrder } = this.state;
+    const timeline = <Timeline events={events} reverseOrder={reverseOrder} />;
+    const customComponents = {
+      topLabel: CustomTopLabel,
+      bottomLabel: CustomBottomLabel,
+      header: CustomHeader,
+      imageBody: CustomImageBody,
+      textBody: CustomTextBody,
+      footer: CustomFooter,
+    };
+    const customTimeline = <Timeline events={events} customComponents={customComponents} reverseOrder={reverseOrder} />;
     return (
       <div>
-        <h1>React Image Timeline Example (resize me - I'm responsive)</h1>
+        <div style={{ textAlign: 'center' }}>
+          <h1>React Image Timeline Example</h1>
+          <h4>resize window to see mobile layout</h4>
+        </div>
         <div className="toggle-container">
-          <strong>Use Custom Components:</strong>
+          <strong>Use Custom Components</strong>
           <input
             type="checkbox"
-            onChange={this.handleToggle.bind(this)}
+            onChange={this.handleToggleUseCustomComponents.bind(this)}
             checked={useCustomComponents}
           />
+          <strong>Reverse Order</strong>
+          <input type="checkbox" onChange={this.handleToggleReverseOrder.bind(this)} checked={reverseOrder} />
         </div>
         <hr />
         {useCustomComponents ? customTimeline : timeline}
