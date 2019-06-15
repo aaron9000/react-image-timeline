@@ -11,6 +11,10 @@ jobs:
     steps:
       - checkout
       - run: npm install --dev
-      - run:
-        name: Run tests
-        command: npm test
+      - run: npm test
+
+workflows:
+  version: 2
+  workflow:
+    jobs:
+    - test_rit
