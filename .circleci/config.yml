@@ -1,14 +1,16 @@
 version: 2
 jobs:
+
   test_rit:
+  
     parallelism: 1
-      shell: /bin/bash --login
-      docker:
-        - image: circleci/node:8.10
-          command: /sbin/init
-      steps:
-        - checkout
-        - run: npm install --dev
-      - run:
-        name: Run tests
-        command: npm test
+    shell: /bin/bash --login
+    docker:
+      - image: circleci/node:8.10
+        command: /sbin/init
+    steps:
+      - checkout
+      - run: npm install --dev
+    - run:
+      name: Run tests
+      command: npm test
