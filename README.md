@@ -104,7 +104,7 @@ const CustomHeader = (props) => {
 ReactDOM.render(<Timeline events={events} customComponents={{header: CustomHeader}}/>, document.getElementById('root'));
 ```
 
-### Scripts
+--
 
 #### Run Example Project
 ```
@@ -115,5 +115,6 @@ npm run start
 
 #### Run Tests
 ```
+*clone repository*
 npm run test
 ```

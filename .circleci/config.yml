@@ -1,7 +1,7 @@
 version: 2
 jobs:
 
-  test_rit:
+  run_tests:
   
     parallelism: 1
     shell: /bin/bash --login
