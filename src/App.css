@@ -23,7 +23,7 @@ h5 {
   border: solid 1px lightgray;
 }
 
-.custom-start-label {
+.custom-top-label {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,7 +37,7 @@ h5 {
   height: 120px;
 }
 
-.custom-end-label {
+.custom-bottom-label {
   display: flex;
   justify-content: center;
   align-items: center;

@@ -1,6 +1,6 @@
 {
   "name": "react-image-timeline",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "main": "index.js",
   "homepage": "http://aaron9000.github.io/react-image-timeline",
   "dependencies": {},
@@ -58,7 +58,7 @@
     "time",
     "line"
   ],
-  "author": "Aaron Geisler <aaron.geisler.sloth@gmail.com>",
+  "author": "Aaron Geisler",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/aaron9000/react-image-timeline/issues"

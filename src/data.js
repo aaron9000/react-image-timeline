@@ -76,7 +76,7 @@ export function getSampleData() {
     const MIN_TEXT_LENGTH = 50;
     return R.addIndex(R.map)((location, index) => {
         return R.merge({
-            date: addDays(new Date('2013-02-08'), index),
+            date: addDays(new Date('2013-12-08'), index * 8),
             text: R.slice(0, Math.random() * (R.length(IPSUM) - MIN_TEXT_LENGTH) + MIN_TEXT_LENGTH, IPSUM),
             buttonText: 'Read More',
             onClick: () => {
