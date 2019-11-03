@@ -9,8 +9,8 @@ jobs:
       - image: circleci/node:8.10
     steps:
       - checkout
-      - run: npm install --only=dev
-      - run: npm test
+      - run: yarn
+      - run: yarn test
 
 workflows:
   version: 2
