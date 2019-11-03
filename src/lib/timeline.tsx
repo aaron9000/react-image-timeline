@@ -106,8 +106,9 @@ const Clear = React.memo(function Clear(props) {
   return <li key="clear" className="rt-clear" />;
 });
 
-const Timeline = React.memo(function Timeline(props) {
-  const { events, reverseOrder, customComponents } = props;
+const Timeline = React.memo(function Timeline({ events, customComponents, reverseOrder }: TimelineProps) {
+
+  // Obey sorting
   const sortedEvents = events
         .slice(0)
         .filter(({ date }) => isValidDate(date))
@@ -169,27 +170,50 @@ const Timeline = React.memo(function Timeline(props) {
 
 Timeline.displayName = 'Timeline';
 
-Timeline.propTypes = {
-  events: PropTypes.arrayOf(
-    PropTypes.shape({
-      date: PropTypes.instanceOf(Date).isRequired,
-      title: PropTypes.string.isRequired,
-      imageUrl: PropTypes.string.isRequired,
-      text: PropTypes.string.isRequired,
-      onClick: PropTypes.func,
-      buttonText: PropTypes.string,
-      extras: PropTypes.object,
-    })
-  ).isRequired,
-  customComponents: PropTypes.shape({
-    topLabel: PropTypes.func,
-    bottomLabel: PropTypes.func,
-    header: PropTypes.func,
-    imageBody: PropTypes.func,
-    textBody: PropTypes.func,
-    footer: PropTypes.func,
-  }),
-  reverseOrder: PropTypes.bool,
-};
+interface Event {
+  date: Date,
+  title: string,
+  imageUrl: string,
+  text: string,
+  onClick: func|null,
+  buttonText: string|null,
+  extras: object|null,
+}
+
+interface TimelineProps {
+  customComponents: {
+    topLabel: func|null,
+    bottomLabel: func|null,
+    header: func|null,
+    imageBody: func|null,
+    textBody: func|null,
+    footer: func|null,
+  }|null
+  events: Array<Event>
+  reverseOrder: boolean
+}
+
+// Timeline.propTypes = {
+//   events: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       date: PropTypes.instanceOf(Date).isRequired,
+//       title: PropTypes.string.isRequired,
+//       imageUrl: PropTypes.string.isRequired,
+//       text: PropTypes.string.isRequired,
+//       onClick: PropTypes.func,
+//       buttonText: PropTypes.string,
+//       extras: PropTypes.object,
+//     })
+//   ).isRequired,
+//   customComponents: PropTypes.shape({
+//     topLabel: PropTypes.func,
+//     bottomLabel: PropTypes.func,
+//     header: PropTypes.func,
+//     imageBody: PropTypes.func,
+//     textBody: PropTypes.func,
+//     footer: PropTypes.func,
+//   }),
+//   reverseOrder: PropTypes.bool,
+// };
 
 export default Timeline;
