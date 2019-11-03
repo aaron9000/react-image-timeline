@@ -7,10 +7,12 @@ An image-centric timeline component for React.js. View chronological events in a
 ***v3.0.0 (React 16)***
 
 ### Features
-- Responsive & mobile-friendly
+
+- Responsive layout
 - Easily customized
 - Lightweight (only CSS and SVG)
 - Only 20kb
+- Memoized, pure, & typed
 - ***Zero*** extra dependencies
 
 ![screenshot](https://github.com/aaron9000/react-image-timeline/blob/master/public/screenshot.png?raw=true)
