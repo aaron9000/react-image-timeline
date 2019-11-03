@@ -1,44 +1,22 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { TimelineEvent, TimelineProps, TimelineEventConsumerProps } from './timeline_types';
 
-interface EventProps {
-  date: Date,
-  title: string,
-  imageUrl: string,
-  text: string,
-  onClick: func|null,
-  buttonText: string|null,
-  extras: object|null,
-}
+const isNonZeroArray = (a: Array<TimelineEvent>) => Array.isArray(a) && a.length > 0;
 
-interface TimelineProps {
-  customComponents: {
-    topLabel: func|null,
-    bottomLabel: func|null,
-    header: func|null,
-    imageBody: func|null,
-    textBody: func|null,
-    footer: func|null,
-  }|null
-  events: Array<EventProps>
-  reverseOrder: boolean
-}
+const takeFirst = (a: Array<TimelineEvent>) => (isNonZeroArray(a) ? a[0] : {} as TimelineEvent);
 
-const isNonZeroArray = a => Array.isArray(a) && a.length > 0;
+const takeLast = (a: Array<TimelineEvent>) => (isNonZeroArray(a) ? a[a.length - 1] : {} as TimelineEvent);
 
-const takeFirst = a => (isNonZeroArray(a) ? a[0] : null);
-
-const takeLast = a => (isNonZeroArray(a) ? a[a.length - 1] : null);
-
-const isValidDate = date => {
+const isValidDate = (date: Date) => {
   return date && date instanceof Date && !isNaN(date.getTime());
 };
 
-const formattedYear = date => {
+const formattedYear = (date: Date) => {
   return isValidDate(date) ? String(date.getFullYear()) : '-';
 };
 
-const formattedDate = date => {
+const formattedDate = (date: Date) => {
   if (!isValidDate(date)) return '-';
   const day = String(date.getDate());
   const month = String(date.getMonth() + 1);
@@ -64,47 +42,49 @@ const Arrow = React.memo(function Arrow(props) {
   );
 });
 
-const DefaultTopLabel = React.memo(function DefaultTopLabel({event}: EventProps) {
-  return <div className="rt-label">{formattedYear(event.date)}</div>;
+const DefaultTopLabel = React.memo(function DefaultTopLabel(props: TimelineEventConsumerProps) {
+  return <div className="rt-label">{formattedYear(props.event.date)}</div>;
 });
 
-const DefaultBottomLabel = React.memo(function DefaultBottomLabel({event}: EventProps) {
-  return <div className="rt-label">{formattedYear(event.date)}</div>;
+const DefaultBottomLabel = React.memo(function DefaultBottomLabel(props: TimelineEventConsumerProps) {
+  return <div className="rt-label">{formattedYear(props.event.date)}</div>;
 });
 
-const DefaultHeader = React.memo(function DefaultHeader({event}: EventProps) {
+const DefaultHeader = React.memo(function DefaultHeader(props: TimelineEventConsumerProps) {
   return (
     <div>
-      <h2 className="rt-title">{event.title}</h2>
-      <p className="rt-date">{formattedDate(event.date)}</p>
+      <h2 className="rt-title">{props.event.title}</h2>
+      <p className="rt-date">{formattedDate(props.event.date)}</p>
     </div>
   );
 });
 
-const DefaultFooter = React.memo(function DefaultFooter({event}: EventProps) {
-  const handleClick = e => {
+const DefaultFooter = React.memo(function DefaultFooter(props: TimelineEventConsumerProps) {
+  const handleClick = (e: MouseEvent) => {
     e.preventDefault();
-    (event.onClick || (x => x))(e);
+    (props.event.onClick || (x => x))(e);
   };
+
   return (
+    // @ts-ignore
     <button className="rt-btn" href="#" onClick={handleClick}>
-      {event.buttonText || ''}
+      {props.event.buttonText || ''}
     </button>
   );
 });
 
-const DefaultTextBody = React.memo(function DefaultTextBody({event}: EventProps) {
+const DefaultTextBody = React.memo(function DefaultTextBody(props: TimelineEventConsumerProps) {
   return (
     <div>
-      <p>{event.text}</p>
+      <p>{props.event.text}</p>
     </div>
   );
 });
 
-const DefaultImageBody = React.memo(function DefaultImageBody({event}: EventProps) {
+const DefaultImageBody = React.memo(function DefaultImageBody(props: TimelineEventConsumerProps) {
   return (
     <div>
-      <img src={event.imageUrl} alt="" className="rt-image" />
+      <img src={props.event.imageUrl} alt="" className="rt-image" />
     </div>
   );
 });
@@ -126,11 +106,13 @@ const Timeline = React.memo(function Timeline({ events, customComponents, revers
 
   // Obey sorting
   const sortedEvents = events
-        .slice(0)
-        .filter(({ date }) => isValidDate(date))
-        .sort((a, b) => {
-          return reverseOrder ? new Date(b.date) - new Date(a.date) : new Date(a.date) - new Date(b.date);
-        });
+    .slice(0)
+    .filter(({ date }) => isValidDate(date))
+    .sort((a, b) => {
+      return reverseOrder
+        ? new Date(b.date).getTime() - new Date(a.date).getTime()
+        : new Date(a.date).getTime() - new Date(b.date).getTime();
+    });
 
   // Render nothing with empty events
   if (!sortedEvents.length) {
@@ -139,12 +121,12 @@ const Timeline = React.memo(function Timeline({ events, customComponents, revers
 
   // Use custom component when provided
   const { topLabel, bottomLabel, header, footer, imageBody, textBody } = customComponents || {};
-  const TopComponent = topLabel || DefaultTopLabel;
-  const BottomComponent = bottomLabel || DefaultBottomLabel;
-  const HeaderComponent = header || DefaultHeader;
-  const ImageBodyComponent = imageBody || DefaultImageBody;
-  const TextBodyComponent = textBody || DefaultTextBody;
-  const FooterComponent = footer || DefaultFooter;
+  const TopComponent = (topLabel || DefaultTopLabel) as React.ComponentType<TimelineEventConsumerProps>;  
+  const BottomComponent = (bottomLabel || DefaultBottomLabel) as React.ComponentType<TimelineEventConsumerProps>;  
+  const HeaderComponent = (header || DefaultHeader) as React.ComponentType<TimelineEventConsumerProps>;  
+  const ImageBodyComponent = (imageBody || DefaultImageBody) as React.ComponentType<TimelineEventConsumerProps>;   
+  const TextBodyComponent = (textBody || DefaultTextBody) as React.ComponentType<TimelineEventConsumerProps>;  
+  const FooterComponent = (footer || DefaultFooter) as React.ComponentType<TimelineEventConsumerProps>;  
 
   return (
     <div className="rt-timeline-container">

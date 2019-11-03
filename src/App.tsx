@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import './App.css';
 import './lib/timeline.scss';
 import Timeline from './lib/timeline';
+import { TimelineEvent, TimelineCustomComponents, TimelineProps, TimelineEventConsumerProps } from './lib/timeline_types';
 import { getSampleData } from './data';
 
-const CustomTopLabel = props => {
+const CustomTopLabel = (props: TimelineEventConsumerProps) => {
   return (
     <div className="custom-top-label">
       <p>Top Label</p>
@@ -12,7 +13,7 @@ const CustomTopLabel = props => {
   );
 };
 
-const CustomBottomLabel = props => {
+const CustomBottomLabel = (props: TimelineEventConsumerProps) => {
   return (
     <div className="custom-bottom-label">
       <p>Bottom Label</p>
@@ -20,7 +21,7 @@ const CustomBottomLabel = props => {
   );
 };
 
-const CustomHeader = props => {
+const CustomHeader = (props: TimelineEventConsumerProps) => {
   return (
     <div className="custom-header">
       <h3>Header</h3>
@@ -28,7 +29,7 @@ const CustomHeader = props => {
   );
 };
 
-const CustomFooter = props => {
+const CustomFooter = (props: TimelineEventConsumerProps) => {
   return (
     <div className="custom-footer">
       <h3>Footer</h3>
@@ -36,7 +37,7 @@ const CustomFooter = props => {
   );
 };
 
-const CustomTextBody = props => {
+const CustomTextBody = (props: TimelineEventConsumerProps) => {
   return (
     <div className="custom-text-body">
       <h3>Text Body</h3>
@@ -44,7 +45,7 @@ const CustomTextBody = props => {
   );
 };
 
-const CustomImageBody = props => {
+const CustomImageBody = (props: TimelineEventConsumerProps) => {
   const { imageUrl } = props.event;
   return (
     <div className="custom-image-body">
@@ -54,11 +55,21 @@ const CustomImageBody = props => {
   );
 };
 
-class TimelineExample extends Component {
+interface ExampleProps {
+
+};
+
+interface ExampleState {
+  events: Array<TimelineEvent>;
+  useCustomComponents: boolean;
+  reverseOrder: boolean;
+};
+
+class TimelineExample extends React.Component<ExampleProps, ExampleState> {
   static displayName = 'TimelineExample';
   static propTypes = {};
 
-  constructor(props) {
+  constructor(props: any) {
     super(props);
     this.state = {
       events: getSampleData(),
@@ -67,10 +78,10 @@ class TimelineExample extends Component {
     };
   }
 
-  handleToggleUseCustomComponents(event) {
+  handleToggleUseCustomComponents(event: any) {
     this.setState({ useCustomComponents: event.target.checked });
   }
-  handleToggleReverseOrder(event) {
+  handleToggleReverseOrder(event: any) {
     this.setState({ reverseOrder: event.target.checked });
   }
 
@@ -84,7 +95,7 @@ class TimelineExample extends Component {
       imageBody: CustomImageBody,
       textBody: CustomTextBody,
       footer: CustomFooter,
-    };
+    } as TimelineCustomComponents;
     const customTimeline = <Timeline events={events} customComponents={customComponents} reverseOrder={reverseOrder} />;
     return (
       <div>
