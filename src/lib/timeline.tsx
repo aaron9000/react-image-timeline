@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 interface EventProps {
   date: Date,
@@ -23,7 +23,6 @@ interface TimelineProps {
   events: Array<EventProps>
   reverseOrder: boolean
 }
-
 
 const isNonZeroArray = a => Array.isArray(a) && a.length > 0;
 
@@ -185,30 +184,29 @@ const Timeline = React.memo(function Timeline({ events, customComponents, revers
   );
 });
 
-// Timeline.displayName = 'Timeline';
+Timeline.displayName = 'Timeline';
 
-
-// Timeline.propTypes = {
-//   events: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       date: PropTypes.instanceOf(Date).isRequired,
-//       title: PropTypes.string.isRequired,
-//       imageUrl: PropTypes.string.isRequired,
-//       text: PropTypes.string.isRequired,
-//       onClick: PropTypes.func,
-//       buttonText: PropTypes.string,
-//       extras: PropTypes.object,
-//     })
-//   ).isRequired,
-//   customComponents: PropTypes.shape({
-//     topLabel: PropTypes.func,
-//     bottomLabel: PropTypes.func,
-//     header: PropTypes.func,
-//     imageBody: PropTypes.func,
-//     textBody: PropTypes.func,
-//     footer: PropTypes.func,
-//   }),
-//   reverseOrder: PropTypes.bool,
-// };
+Timeline.propTypes = {
+  events: PropTypes.arrayOf(
+    PropTypes.shape({
+      date: PropTypes.instanceOf(Date).isRequired,
+      title: PropTypes.string.isRequired,
+      imageUrl: PropTypes.string.isRequired,
+      text: PropTypes.string.isRequired,
+      onClick: PropTypes.func,
+      buttonText: PropTypes.string,
+      extras: PropTypes.object,
+    })
+  ).isRequired,
+  customComponents: PropTypes.shape({
+    topLabel: PropTypes.func,
+    bottomLabel: PropTypes.func,
+    header: PropTypes.func,
+    imageBody: PropTypes.func,
+    textBody: PropTypes.func,
+    footer: PropTypes.func,
+  }),
+  reverseOrder: PropTypes.bool,
+};
 
 export default Timeline;
