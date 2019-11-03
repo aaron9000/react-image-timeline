@@ -3,8 +3,10 @@
   "version": "3.0.0",
   "main": "index.js",
   "homepage": "http://aaron9000.github.io/react-image-timeline",
-  "dependencies": {},
+  "dependencies": {    
+  },
   "devDependencies": {
+    "typescript": "^3.6.4",
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.3.1",
