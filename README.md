@@ -26,7 +26,7 @@ http://aaron9000.github.io/react-image-timeline/
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Timeline from 'react-image-timeline';
-require('react-image-timeline/dist/timeline.css');
+require('react-image-timeline/dist/timeline.css'); // .scss also available
 
 ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
 ```
@@ -47,6 +47,12 @@ Sample TimelineEvent
 
 
 ## Types
+
+Typescript definitions are available
+
+```js
+import {TimelineProps, TimelineEventProps, TimelineEvent, TimelineCustomComponents} from 'react-image-timeline';
+```
 
 #### TimelineProps
 
