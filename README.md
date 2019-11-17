@@ -54,7 +54,7 @@ import {
     TimelineEventProps, 
     TimelineEvent, 
     TimelineCustomComponents
-    } from 'react-image-timeline';
+} from 'react-image-timeline';
 ```
 
 #### TimelineProps
@@ -114,7 +114,7 @@ const CustomHeader = (props) => {
 
     const {title, extras} = props.event;
     const {customField} = extras;
-    
+
     return <div className="custom-header">
         <h1>{title}</h1>
         <p>{customField}</p>
