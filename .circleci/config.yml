@@ -7,11 +7,10 @@ jobs:
     shell: /bin/bash --login
     docker:
       - image: circleci/node:8.10
-        command: /sbin/init
     steps:
       - checkout
-      - run: npm install --only=dev
-      - run: npm test
+      - run: yarn
+      - run: yarn test
 
 workflows:
   version: 2

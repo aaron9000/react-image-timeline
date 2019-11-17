@@ -2,7 +2,7 @@ import React from 'react';
 import * as R from 'ramda';
 import sinon from 'sinon';
 import { expect } from 'chai';
-import { shallow, mount, render, spy } from 'enzyme';
+import { shallow, mount, render } from 'enzyme';
 import Timeline from './timeline';
 
 const SHUFFLED_EVENTS = [
@@ -68,19 +68,6 @@ const CustomBottomLabel = props => {
 };
 
 describe('<Timeline />', () => {
-  describe('Lifecycle', () => {
-    it('mounts when rendered', () => {
-      Timeline.prototype.componentDidMount = sinon.spy();
-      mount(<Timeline events={[]} />);
-      expect(Timeline.prototype.componentDidMount.calledOnce).to.equal(true);
-    });
-
-    it('componentWillReceiveProps is called with new props', () => {
-      Timeline.prototype.componentWillReceiveProps = sinon.spy();
-      mount(<Timeline events={[]} />).setProps({ events: [] });
-      expect(Timeline.prototype.componentWillReceiveProps.calledOnce).to.equal(true);
-    });
-  });
 
   describe('State', () => {
     it("receives 'extras' in 'events' prop", () => {

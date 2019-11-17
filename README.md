@@ -4,13 +4,14 @@
 
 An image-centric timeline component for React.js. View chronological events in a pleasant way.
 
-***v2.0.2 (React 16)***
+***v3.0.2 (React 16 + TypeScript)***
 
 ### Features
-- Responsive & mobile-friendly
-- Easily customized
-- Lightweight (only CSS and SVG)
-- Only 20kb
+
+- Responsive layout
+- Customizable (use your own CSS and components)
+- Memoized, pure, & typed (Typescript definitions included)
+- Only 32kb
 - ***Zero*** extra dependencies
 
 ![screenshot](https://github.com/aaron9000/react-image-timeline/blob/master/public/screenshot.png?raw=true)
@@ -23,6 +24,7 @@ http://aaron9000.github.io/react-image-timeline/
 
 ### Usage
 ```js
+import React from 'react';
 import ReactDOM from 'react-dom';
 import Timeline from 'react-image-timeline';
 require('react-image-timeline/dist/timeline.css');
@@ -30,24 +32,33 @@ require('react-image-timeline/dist/timeline.css');
 ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
 ```
 
-#### Props
+#### TimelineProps
+
 |                      Key |                     Type |                Required?
 |--------------------------|--------------------------|--------------------------|
-|                  events  |        array of "Event"  |                     Yes  |
-|        customComponents  |      "CustomComponents"  |                          |
+|                  events  |    Array<TimelineEvent>  |                     Yes  |
+|        customComponents  |TimelineCustomComponents  |                          |
 |            reverseOrder  |                 boolean  |                          |
 
-#### CustomComponents
+#### TimelineCustomComponents
+
 |                      Key |                     Type |                Required?
 |--------------------------|--------------------------|--------------------------|
 |                topLabel  |               component  |                          |
-|             bottomLabel  |               component  |                          | 
+|             bottomLabel  |               component  |                          |
 |                  header  |               component  |                          |
 |               imageBody  |               component  |                          |
 |                textBody  |               component  |                          |
 |                  footer  |               component  |                          |
 
-#### Event
+#### TimelineEventProps
+
+|                      Key |                     Type |                Required?
+|--------------------------|--------------------------|--------------------------|
+|                   event  |           TimelineEvent  |                     Yes  |
+
+#### TimelineEvent
+
 |                      Key |                     Type |                Required?
 |--------------------------|--------------------------|--------------------------|
 |                    date  |                    date  |                     Yes  |
@@ -58,7 +69,6 @@ ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
 |              buttonText  |                  string  |                          |
 |                  extras  |                  object  |                          |
 
-
 #### Sample Event
 
 ```js
@@ -66,23 +76,27 @@ ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
     date: new Date(2013, 9, 27),
     text: "Sed leo elit, pellentesque sit amet congue quis, ornare nec lorem.",
     title: "Cairo, Egypt",
-    imageUrl: "http://github.com/aaron9000/react-image-timeline/blob/master/src/assets/cairo.jpg?raw=true"
+    buttonText: 'Click Me',
+    imageUrl: "http://github.com/aaron9000/react-image-timeline/blob/master/src/assets/cairo.jpg?raw=true",
+    onClick: () => {
+        console.log('hello');
+    }
 }
 ```
 
 ### Customization
 
 #### Event Metadata
-To pass extra data into custom components, use the `extras` field on the `event` model.
+To pass extra data into custom components, use `extras` on `TimelineEvent`.
 
 #### Custom Styles
-To customize the timeline styles, add CSS to override [timeline.scss](https://github.com/aaron9000/react-image-timeline/blob/master/src/lib/timeline.scss).
+To customize the timeline styles, add your own [SCSS](https://github.com/aaron9000/react-image-timeline/blob/master/src/lib/timeline.scss/) or [CSS](https://github.com/aaron9000/react-image-timeline/blob/master/src/lib/timeline.css/) to override.
 
 #### Custom Dot Pattern
 The dots are defined in CSS using a [base64-encoded image](https://www.base64-image.de/). Encode a new image and override the corresponding CSS class.
 
 #### Custom Components
-For more advanced customization, you can pass in custom components to replace the defaults. Custom components will be passed an `event` model in props.
+For more advanced customization, you can pass in custom components to replace the defaults. Custom components will be passed a `TimelineEvent` model in props.
 ```js
 
 // A custom header to replace the default
