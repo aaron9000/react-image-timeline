@@ -19,6 +19,11 @@
 .env.test.local
 .env.production.local
 
+# typescript defs
+src/App.d.ts
+src/index.d.ts
+src/lib/timeline.d.ts
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

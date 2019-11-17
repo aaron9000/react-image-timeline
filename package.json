@@ -4,7 +4,9 @@
   "main": "index.js",
   "types": "index.d.ts",
   "homepage": "http://aaron9000.github.io/react-image-timeline",
-  "dependencies": {    
+  "dependencies": {
+    "source-map-loader": "^0.2.4",
+    "ts-loader": "^6.2.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
@@ -18,7 +20,6 @@
     "enzyme-adapter-react-16": "^1.8.0",
     "gh-pages": "^2.0.1",
     "node-sass": "^4.11.0",
-    "prop-types": "^15.6.2",
     "ramda": "^0.26.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
@@ -36,7 +37,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build-module": "node-sass src/lib/timeline.scss dist/timeline.css && webpack",
+    "build-module": "node-sass src/lib/timeline.scss dist/timeline.css && cp src/lib/timeline.scss dist/timeline.scss && webpack && cp src/lib/timeline.d.ts dist/timeline.d.ts",
     "build-and-publish": "npm version patch && npm run build-module && npm publish",
     "deploy-gh-pages": "gh-pages -d build",
     "build-and-deploy": "npm run build && npm run deploy-gh-pages"

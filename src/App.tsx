@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
 import './lib/timeline.scss';
-import Timeline from './lib/timeline';
-import { TimelineEvent, TimelineCustomComponents, TimelineProps, TimelineEventConsumerProps } from './lib/timeline_types';
+import Timeline, { TimelineEvent, TimelineCustomComponents, TimelineProps, TimelineEventProps } from './lib/timeline';
+// @ts-ignore
 import { getSampleData } from './data';
 
-const CustomTopLabel = (props: TimelineEventConsumerProps) => {
+const CustomTopLabel = (props: TimelineEventProps) => {
   return (
     <div className="custom-top-label">
       <p>Top Label</p>
@@ -13,7 +13,7 @@ const CustomTopLabel = (props: TimelineEventConsumerProps) => {
   );
 };
 
-const CustomBottomLabel = (props: TimelineEventConsumerProps) => {
+const CustomBottomLabel = (props: TimelineEventProps) => {
   return (
     <div className="custom-bottom-label">
       <p>Bottom Label</p>
@@ -21,7 +21,7 @@ const CustomBottomLabel = (props: TimelineEventConsumerProps) => {
   );
 };
 
-const CustomHeader = (props: TimelineEventConsumerProps) => {
+const CustomHeader = (props: TimelineEventProps) => {
   return (
     <div className="custom-header">
       <h3>Header</h3>
@@ -29,7 +29,7 @@ const CustomHeader = (props: TimelineEventConsumerProps) => {
   );
 };
 
-const CustomFooter = (props: TimelineEventConsumerProps) => {
+const CustomFooter = (props: TimelineEventProps) => {
   return (
     <div className="custom-footer">
       <h3>Footer</h3>
@@ -37,7 +37,7 @@ const CustomFooter = (props: TimelineEventConsumerProps) => {
   );
 };
 
-const CustomTextBody = (props: TimelineEventConsumerProps) => {
+const CustomTextBody = (props: TimelineEventProps) => {
   return (
     <div className="custom-text-body">
       <h3>Text Body</h3>
@@ -45,7 +45,7 @@ const CustomTextBody = (props: TimelineEventConsumerProps) => {
   );
 };
 
-const CustomImageBody = (props: TimelineEventConsumerProps) => {
+const CustomImageBody = (props: TimelineEventProps) => {
   const { imageUrl } = props.event;
   return (
     <div className="custom-image-body">

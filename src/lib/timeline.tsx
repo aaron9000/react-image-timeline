@@ -1,6 +1,38 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { TimelineEvent, TimelineProps, TimelineEventConsumerProps } from './timeline_types';
+
+export interface TimelineEventClickHandler {
+  (event: any): void;
+}
+
+export interface TimelineEvent {
+  date: Date;
+  title: string;
+  imageUrl: string;
+  text: string;
+  onClick?: TimelineEventClickHandler | null;
+  buttonText?: string | null;
+  extras?: object | null;
+}
+
+export interface TimelineEventProps {
+  event: TimelineEvent;
+}
+
+export interface TimelineCustomComponents {
+  topLabel?: React.PureComponent<TimelineEventProps> | React.ReactNode | null;
+  bottomLabel?: React.PureComponent<TimelineEventProps> | React.ReactNode | null;
+  header?: React.PureComponent<TimelineEventProps> | React.ReactNode | null;
+  imageBody?: React.PureComponent<TimelineEventProps> | React.ReactNode | null;
+  textBody?: React.PureComponent<TimelineEventProps> | React.ReactNode | null;
+  footer?: React.PureComponent<TimelineEventProps> | React.ReactNode | null;
+}
+
+export interface TimelineProps {
+  customComponents?: TimelineCustomComponents | null;
+  events: Array<TimelineEvent>;
+  reverseOrder?: boolean;
+}
+
 
 const isNonZeroArray = (a: Array<TimelineEvent>) => Array.isArray(a) && a.length > 0;
 
@@ -42,15 +74,15 @@ const Arrow = React.memo(function Arrow(props) {
   );
 });
 
-const DefaultTopLabel = React.memo(function DefaultTopLabel(props: TimelineEventConsumerProps) {
+const DefaultTopLabel = React.memo(function DefaultTopLabel(props: TimelineEventProps) {
   return <div className="rt-label">{formattedYear(props.event.date)}</div>;
 });
 
-const DefaultBottomLabel = React.memo(function DefaultBottomLabel(props: TimelineEventConsumerProps) {
+const DefaultBottomLabel = React.memo(function DefaultBottomLabel(props: TimelineEventProps) {
   return <div className="rt-label">{formattedYear(props.event.date)}</div>;
 });
 
-const DefaultHeader = React.memo(function DefaultHeader(props: TimelineEventConsumerProps) {
+const DefaultHeader = React.memo(function DefaultHeader(props: TimelineEventProps) {
   return (
     <div>
       <h2 className="rt-title">{props.event.title}</h2>
@@ -59,7 +91,7 @@ const DefaultHeader = React.memo(function DefaultHeader(props: TimelineEventCons
   );
 });
 
-const DefaultFooter = React.memo(function DefaultFooter(props: TimelineEventConsumerProps) {
+const DefaultFooter = React.memo(function DefaultFooter(props: TimelineEventProps) {
   const handleClick = (e: MouseEvent) => {
     e.preventDefault();
     (props.event.onClick || (x => x))(e);
@@ -73,7 +105,7 @@ const DefaultFooter = React.memo(function DefaultFooter(props: TimelineEventCons
   );
 });
 
-const DefaultTextBody = React.memo(function DefaultTextBody(props: TimelineEventConsumerProps) {
+const DefaultTextBody = React.memo(function DefaultTextBody(props: TimelineEventProps) {
   return (
     <div>
       <p>{props.event.text}</p>
@@ -81,7 +113,7 @@ const DefaultTextBody = React.memo(function DefaultTextBody(props: TimelineEvent
   );
 });
 
-const DefaultImageBody = React.memo(function DefaultImageBody(props: TimelineEventConsumerProps) {
+const DefaultImageBody = React.memo(function DefaultImageBody(props: TimelineEventProps) {
   return (
     <div>
       <img src={props.event.imageUrl} alt="" className="rt-image" />
@@ -121,12 +153,12 @@ const Timeline = React.memo(function Timeline({ events, customComponents, revers
 
   // Use custom component when provided
   const { topLabel, bottomLabel, header, footer, imageBody, textBody } = customComponents || {};
-  const TopComponent = (topLabel || DefaultTopLabel) as React.ComponentType<TimelineEventConsumerProps>;  
-  const BottomComponent = (bottomLabel || DefaultBottomLabel) as React.ComponentType<TimelineEventConsumerProps>;  
-  const HeaderComponent = (header || DefaultHeader) as React.ComponentType<TimelineEventConsumerProps>;  
-  const ImageBodyComponent = (imageBody || DefaultImageBody) as React.ComponentType<TimelineEventConsumerProps>;   
-  const TextBodyComponent = (textBody || DefaultTextBody) as React.ComponentType<TimelineEventConsumerProps>;  
-  const FooterComponent = (footer || DefaultFooter) as React.ComponentType<TimelineEventConsumerProps>;  
+  const TopComponent = (topLabel || DefaultTopLabel) as React.ComponentType<TimelineEventProps>;  
+  const BottomComponent = (bottomLabel || DefaultBottomLabel) as React.ComponentType<TimelineEventProps>;  
+  const HeaderComponent = (header || DefaultHeader) as React.ComponentType<TimelineEventProps>;  
+  const ImageBodyComponent = (imageBody || DefaultImageBody) as React.ComponentType<TimelineEventProps>;   
+  const TextBodyComponent = (textBody || DefaultTextBody) as React.ComponentType<TimelineEventProps>;  
+  const FooterComponent = (footer || DefaultFooter) as React.ComponentType<TimelineEventProps>;  
 
   return (
     <div className="rt-timeline-container">
@@ -165,30 +197,5 @@ const Timeline = React.memo(function Timeline({ events, customComponents, revers
     </div>
   );
 });
-
-Timeline.displayName = 'Timeline';
-
-Timeline.propTypes = {
-  events: PropTypes.arrayOf(
-    PropTypes.shape({
-      date: PropTypes.instanceOf(Date).isRequired,
-      title: PropTypes.string.isRequired,
-      imageUrl: PropTypes.string.isRequired,
-      text: PropTypes.string.isRequired,
-      onClick: PropTypes.func,
-      buttonText: PropTypes.string,
-      extras: PropTypes.object,
-    })
-  ).isRequired,
-  customComponents: PropTypes.shape({
-    topLabel: PropTypes.func,
-    bottomLabel: PropTypes.func,
-    header: PropTypes.func,
-    imageBody: PropTypes.func,
-    textBody: PropTypes.func,
-    footer: PropTypes.func,
-  }),
-  reverseOrder: PropTypes.bool,
-};
 
 export default Timeline;
