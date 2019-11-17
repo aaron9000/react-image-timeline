@@ -4,7 +4,7 @@
 
 An image-centric timeline component for React.js. View chronological events in a pleasant way.
 
-### Features
+### Features:
 
 - Responsive layout
 - Customizable (use your own CSS and components)
@@ -88,11 +88,11 @@ Sample TimelineEvent
 
 ## Customization
 
+#### Custom Styles
+To customize the timeline styles, add your own [SCSS](https://github.com/aaron9000/react-image-timeline/blob/master/src/lib/timeline.scss/) or [CSS](https://github.com/aaron9000/react-image-timeline/blob/master/src/lib/timeline.css/) to override the defaults.
+
 #### Event Metadata
 To pass extra data into custom components, use `extras` on `TimelineEvent`.
-
-#### Custom Styles
-To customize the timeline styles, add your own [SCSS](https://github.com/aaron9000/react-image-timeline/blob/master/src/lib/timeline.scss/) or [CSS](https://github.com/aaron9000/react-image-timeline/blob/master/src/lib/timeline.css/) to override.
 
 #### Custom Dot Pattern
 The dots are defined in CSS using a [base64-encoded image](https://www.base64-image.de/). Encode a new image and override the corresponding CSS class.
