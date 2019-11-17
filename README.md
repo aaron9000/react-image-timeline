@@ -4,15 +4,14 @@
 
 An image-centric timeline component for React.js. View chronological events in a pleasant way.
 
-***v3.0.0 (React 16 + TypeScript)***
+***v3.0.3 (React 16 + TypeScript)***
 
 ### Features
 
 - Responsive layout
-- Easily customized
-- Lightweight (only CSS and SVG)
+- Customizable (use your own CSS and components)
+- Memoized, pure, & typed (Typescript definitions included)
 - Only 32kb
-- Memoized, pure, & typed
 - ***Zero*** extra dependencies
 
 ![screenshot](https://github.com/aaron9000/react-image-timeline/blob/master/public/screenshot.png?raw=true)
@@ -25,27 +24,10 @@ http://aaron9000.github.io/react-image-timeline/
 
 ### Usage
 ```js
+import React from 'react';
 import ReactDOM from 'react-dom';
 import Timeline from 'react-image-timeline';
 require('react-image-timeline/dist/timeline.css');
-
-// .ts
-// import {TimelineProps, TimelineEventProps, TimelineEvent, TimelineCustomComponents} from 'react-image-timeline';
-
-// .scss
-// require('react-image-timeline/dist/timeline.scss');
-
-const events = [
-    {
-        date: new Date(2013, 9, 27),
-        text: "Sed leo elit, pellentesque sit amet congue quis, ornare nec lorem.",
-        title: "Cairo, Egypt",
-        imageUrl: "http://github.com/aaron9000/react-image-timeline/blob/master/src/assets/cairo.jpg?raw=true",
-        onClick = () => {
-            console.log('hello');
-        }
-    }
-];
 
 ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
 ```
@@ -94,7 +76,11 @@ ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
     date: new Date(2013, 9, 27),
     text: "Sed leo elit, pellentesque sit amet congue quis, ornare nec lorem.",
     title: "Cairo, Egypt",
-    imageUrl: "http://github.com/aaron9000/react-image-timeline/blob/master/src/assets/cairo.jpg?raw=true"
+    buttonText: 'Click Me',
+    imageUrl: "http://github.com/aaron9000/react-image-timeline/blob/master/src/assets/cairo.jpg?raw=true",
+    onClick: () => {
+        console.log('hello');
+    }
 }
 ```
 
@@ -104,7 +90,7 @@ ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
 To pass extra data into custom components, use `extras` on `TimelineEvent`.
 
 #### Custom Styles
-To customize the timeline styles, add SCSS / CSS to override [timeline.scss] (https://github.com/aaron9000/react-image-timeline/blob/master/src/lib/timeline.scss) / [timeline.css] (https://github.com/aaron9000/react-image-timeline/blob/master/src/lib/timeline.css).
+To customize the timeline styles, add your own [SCSS](https://github.com/aaron9000/react-image-timeline/blob/master/src/lib/timeline.scss/) or [CSS](https://github.com/aaron9000/react-image-timeline/blob/master/src/lib/timeline.css/) to override.
 
 #### Custom Dot Pattern
 The dots are defined in CSS using a [base64-encoded image](https://www.base64-image.de/). Encode a new image and override the corresponding CSS class.
