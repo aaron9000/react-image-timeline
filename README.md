@@ -1,10 +1,9 @@
 [![CircleCI](https://circleci.com/gh/aaron9000/react-image-timeline/tree/master.svg?style=svg)](https://circleci.com/gh/aaron9000/react-image-timeline/tree/master)
 
 # React Image Timeline
+v3.0.2 (React 16 + Typescript)
 
 An image-centric timeline component for React.js. View chronological events in a pleasant way.
-
-***v3.0.2 (React 16 + TypeScript)***
 
 ### Features
 
@@ -19,10 +18,12 @@ An image-centric timeline component for React.js. View chronological events in a
 ### View Live Example 
 http://aaron9000.github.io/react-image-timeline/
 
-### Add to Existing Project
-- `npm install react-image-timeline --save`
+---
 
-### Usage
+## How to Use
+
+`npm install react-image-timeline --save`
+
 ```js
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -31,6 +32,25 @@ require('react-image-timeline/dist/timeline.css');
 
 ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
 ```
+
+### Sample TimelineEvent
+
+```js
+{
+    date: new Date(2013, 9, 27),
+    text: "Sed leo elit, pellentesque sit amet congue quis, ornare nec lorem.",
+    title: "Cairo, Egypt",
+    buttonText: 'Click Me',
+    imageUrl: "http://github.com/aaron9000/react-image-timeline/blob/master/src/assets/cairo.jpg?raw=true",
+    onClick: () => {
+        console.log('hello');
+    }
+}
+```
+
+---
+
+### Types
 
 #### TimelineProps
 
@@ -69,22 +89,10 @@ ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
 |              buttonText  |                  string  |                          |
 |                  extras  |                  object  |                          |
 
-#### Sample Event
 
-```js
-{
-    date: new Date(2013, 9, 27),
-    text: "Sed leo elit, pellentesque sit amet congue quis, ornare nec lorem.",
-    title: "Cairo, Egypt",
-    buttonText: 'Click Me',
-    imageUrl: "http://github.com/aaron9000/react-image-timeline/blob/master/src/assets/cairo.jpg?raw=true",
-    onClick: () => {
-        console.log('hello');
-    }
-}
-```
+---
 
-### Customization
+## Customization
 
 #### Event Metadata
 To pass extra data into custom components, use `extras` on `TimelineEvent`.
