@@ -18,7 +18,6 @@ An image-centric timeline component for React.js. View chronological events in a
 ### View Live Example 
 http://aaron9000.github.io/react-image-timeline/
 
----
 
 ## How to Use
 
@@ -48,7 +47,6 @@ ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
 }
 ```
 
----
 
 ### Types
 
@@ -89,8 +87,6 @@ ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
 |              buttonText  |                  string  |                          |
 |                  extras  |                  object  |                          |
 
-
----
 
 ## Customization
 
