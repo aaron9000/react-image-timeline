@@ -4,6 +4,8 @@
 
 An image-centric timeline component for React.js. View chronological events in a pleasant way.
 
+[View Sample Timeline](http://aaron9000.github.io/react-image-timeline/)
+
 ### Features:
 
 - Responsive layout
@@ -13,10 +15,6 @@ An image-centric timeline component for React.js. View chronological events in a
 - ***Zero*** extra dependencies
 
 ![screenshot](https://github.com/aaron9000/react-image-timeline/blob/master/public/screenshot.png?raw=true)
-
-### View Live Example 
-http://aaron9000.github.io/react-image-timeline/
-
 
 ## How to Use
 
@@ -31,7 +29,7 @@ require('react-image-timeline/dist/timeline.css'); // .scss also available
 ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
 ```
 
-Sample TimelineEvent
+##### Sample TimelineEvent
 ```js
 {
     date: new Date(2013, 9, 27),
@@ -51,7 +49,12 @@ Sample TimelineEvent
 Typescript definitions are available
 
 ```js
-import {TimelineProps, TimelineEventProps, TimelineEvent, TimelineCustomComponents} from 'react-image-timeline';
+import {
+    TimelineProps, 
+    TimelineEventProps, 
+    TimelineEvent, 
+    TimelineCustomComponents
+    } from 'react-image-timeline';
 ```
 
 #### TimelineProps
@@ -107,16 +110,11 @@ The dots are defined in CSS using a [base64-encoded image](https://www.base64-im
 For more advanced customization, you can pass in custom components to replace the defaults. Custom components will be passed a `TimelineEvent` model in props.
 ```js
 
-// A custom header to replace the default
 const CustomHeader = (props) => {
 
-    // The corresponding "event" model
     const {title, extras} = props.event;
-
-    // Custom data payload
     const {customField} = extras;
-
-    // Use your own CSS
+    
     return <div className="custom-header">
         <h1>{title}</h1>
         <p>{customField}</p>
