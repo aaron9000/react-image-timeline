@@ -1,7 +1,6 @@
 [![CircleCI](https://circleci.com/gh/aaron9000/react-image-timeline/tree/master.svg?style=svg)](https://circleci.com/gh/aaron9000/react-image-timeline/tree/master)
 
 # React Image Timeline
-v3.0.2 (React 16 + Typescript)
 
 An image-centric timeline component for React.js. View chronological events in a pleasant way.
 
@@ -32,8 +31,7 @@ require('react-image-timeline/dist/timeline.css');
 ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
 ```
 
-### Sample TimelineEvent
-
+Sample TimelineEvent
 ```js
 {
     date: new Date(2013, 9, 27),
@@ -48,7 +46,7 @@ ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
 ```
 
 
-### Types
+## Types
 
 #### TimelineProps
 
