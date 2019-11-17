@@ -4,14 +4,14 @@
 
 An image-centric timeline component for React.js. View chronological events in a pleasant way.
 
-***v3.0.0 (React 16)***
+***v3.0.0 (React 16 + TypeScript)***
 
 ### Features
 
 - Responsive layout
 - Easily customized
 - Lightweight (only CSS and SVG)
-- Only 20kb
+- Only 32kb
 - Memoized, pure, & typed
 - ***Zero*** extra dependencies
 
