@@ -95,7 +95,7 @@ import {TimelineProps, TimelineEventProps, TimelineEvent, TimelineCustomComponen
 ## Customization
 
 #### Custom Styles
-To customize the timeline styles, add your own [SCSS](https://github.com/aaron9000/react-image-timeline/blob/master/src/lib/timeline.scss/) or [CSS](https://github.com/aaron9000/react-image-timeline/blob/master/src/lib/timeline.css/) to override the defaults.
+To customize the timeline, add your own CSS to override the [default styles](https://github.com/aaron9000/react-image-timeline/blob/master/src/lib/timeline.scss/).
 
 #### Event Metadata
 To pass extra data into custom components, use `extras` on `TimelineEvent`.
