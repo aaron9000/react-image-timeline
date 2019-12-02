@@ -137,10 +137,6 @@ const Clear = React.memo(function Clear(props) {
 const Timeline = React.memo((props: TimelineProps) => {
   const { events, customComponents, reverseOrder } = props;
 
-  if (!events.length) {
-    return <div />;
-  }
-
   const sortedEvents = events
     .slice(0)
     .filter(({ date }) => isValidDate(date))
@@ -150,6 +146,10 @@ const Timeline = React.memo((props: TimelineProps) => {
         : new Date(a.date).getTime() - new Date(b.date).getTime();
     });
 
+  if (!sortedEvents.length) {
+    return <div />;
+  }
+  
   const { topLabel, bottomLabel, header, footer, imageBody, textBody } = customComponents || {};
   const TopComponent = (topLabel || DefaultTopLabel) as React.ComponentType<TimelineEventProps>;
   const BottomComponent = (bottomLabel || DefaultBottomLabel) as React.ComponentType<TimelineEventProps>;
