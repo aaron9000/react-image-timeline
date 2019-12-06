@@ -149,7 +149,7 @@ const Timeline = React.memo((props: TimelineProps) => {
   if (!sortedEvents.length) {
     return <div />;
   }
-  
+
   const { topLabel, bottomLabel, header, footer, imageBody, textBody } = customComponents || {};
   const TopComponent = (topLabel || DefaultTopLabel) as React.ComponentType<TimelineEventProps>;
   const BottomComponent = (bottomLabel || DefaultBottomLabel) as React.ComponentType<TimelineEventProps>;

@@ -98,21 +98,23 @@ const TimelineExample = React.memo(
           <h1>React Image Timeline</h1>
           <h4>resize window to see mobile layout</h4>
         </div>
-        <div className="toggle-container">
-          <div>
-            <input type="checkbox" onChange={onToggleUseCustomComponents} checked={useCustomComponents} />
-            <strong>Use Custom Components</strong>
+        <div className="config-container">
+          <div className="toggle-container">
+            <div>
+              <input type="checkbox" onChange={onToggleUseCustomComponents} checked={useCustomComponents} />
+              <strong>Use Custom Components</strong>
 
-          </div>
-          <div>
-            <input type="checkbox" onChange={onToggleReverseOrder} checked={reverseOrder} />
-            <strong>Reverse Order</strong>
+            </div>
+            <div>
+              <input type="checkbox" onChange={onToggleReverseOrder} checked={reverseOrder} />
+              <strong>Reverse Order</strong>
 
-          </div>
-          <div>
-            <input type="checkbox" onChange={onToggleImageType} checked={imageType !== 'normal'} />
-            <strong>Non-unform Images</strong>
+            </div>
+            <div>
+              <input type="checkbox" onChange={onToggleImageType} checked={imageType !== 'normal'} />
+              <strong>Non-unform Images</strong>
 
+            </div>
           </div>
         </div>
         <hr />
