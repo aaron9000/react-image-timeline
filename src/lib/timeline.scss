@@ -1,6 +1,6 @@
 $max-image-height: 600px;
 $max-copy-height: 200px;
-// $min-event-height: 620px;
+$min-event-height: $max-image-height + $max-copy-height;
 $dual-min-width: 600px;
 $max-width: 1600px;
 $arrow-width: 5%;
@@ -105,8 +105,9 @@ h2 {
   margin-right: 0;
   list-style-type: none;
   display: block;
-  // min-height: $min-event-height;
+  min-height: $min-event-height;
   @media all and (max-width: $dual-min-width) {
+    min-height: auto;
     width: 85%;    
     svg {
       display: none;

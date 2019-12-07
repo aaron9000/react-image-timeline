@@ -63,6 +63,7 @@ const TimelineExample = React.memo(
       events: Array<TimelineEvent>;
       useCustomComponents: boolean;
       reverseOrder: boolean;
+      denseLayout: boolean;
       imageType: string;
     }
   ) => {
@@ -70,8 +71,10 @@ const TimelineExample = React.memo(
     const [events, setEvents] = useState(getSampleData(imageType));
     const [useCustomComponents, setUseCustomComponents] = useState(false);
     const [reverseOrder, setReverseOrder] = useState(false);
+    const [denseLayout, setDenseLayout] = useState(false);
 
     const onToggleReverseOrder = useCallback(() => setReverseOrder(!reverseOrder), [reverseOrder]);
+    const onToggleDenseLayout = useCallback(() => setDenseLayout(!denseLayout), [denseLayout]);
     const onToggleUseCustomComponents = useCallback(() => setUseCustomComponents(!useCustomComponents), [
       useCustomComponents,
     ]);
@@ -84,13 +87,13 @@ const TimelineExample = React.memo(
     const timeline = <Timeline events={events} reverseOrder={reverseOrder} />;
     const customComponents = useCustomComponents
       ? ({
-        topLabel: CustomTopLabel,
-        bottomLabel: CustomBottomLabel,
-        header: CustomHeader,
-        imageBody: CustomImageBody,
-        textBody: CustomTextBody,
-        footer: CustomFooter,
-      } as TimelineCustomComponents)
+          topLabel: CustomTopLabel,
+          bottomLabel: CustomBottomLabel,
+          header: CustomHeader,
+          imageBody: CustomImageBody,
+          textBody: CustomTextBody,
+          footer: CustomFooter,
+        } as TimelineCustomComponents)
       : null;
     return (
       <div>
@@ -103,22 +106,23 @@ const TimelineExample = React.memo(
             <div>
               <input type="checkbox" onChange={onToggleUseCustomComponents} checked={useCustomComponents} />
               <strong>Use Custom Components</strong>
-
             </div>
             <div>
               <input type="checkbox" onChange={onToggleReverseOrder} checked={reverseOrder} />
               <strong>Reverse Order</strong>
-
             </div>
             <div>
               <input type="checkbox" onChange={onToggleImageType} checked={imageType !== 'normal'} />
               <strong>Non-unform Images</strong>
-
+            </div>
+            <div>
+              <input type="checkbox" onChange={onToggleDenseLayout} checked={denseLayout} />
+              <strong>Dense Layout</strong>
             </div>
           </div>
         </div>
         <hr />
-        <Timeline events={events} customComponents={customComponents} reverseOrder={reverseOrder} />
+        <Timeline events={events} customComponents={customComponents} reverseOrder={reverseOrder} denseLayout={denseLayout} />
       </div>
     );
   }

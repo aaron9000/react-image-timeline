@@ -9,6 +9,7 @@ An image-centric timeline component for React.js. View chronological events in a
 ### Features:
 
 - Responsive layout
+- Gracefully handling of non-uniform content
 - Customizable (use your own CSS and components)
 - Memoized, pure, & typed (Typescript definitions included)
 - Only 32kb
@@ -64,6 +65,7 @@ import {
 |                  events  |    Array<TimelineEvent>  |                     Yes  |
 |        customComponents  |TimelineCustomComponents  |                          |
 |            reverseOrder  |                 boolean  |                          |
+|             denseLayout  |                 boolean  |                          |
 
 #### TimelineCustomComponents
 

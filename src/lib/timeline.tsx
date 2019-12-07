@@ -32,6 +32,7 @@ export interface TimelineProps {
   customComponents?: TimelineCustomComponents | null;
   events: Array<TimelineEvent>;
   reverseOrder?: boolean;
+  denseLayout?: boolean;
   // placeholderImageUrl?: string;
 }
 
@@ -135,7 +136,7 @@ const Clear = React.memo(function Clear(props) {
 });
 
 const Timeline = React.memo((props: TimelineProps) => {
-  const { events, customComponents, reverseOrder } = props;
+  const { events, customComponents, reverseOrder, denseLayout } = props;
 
   const sortedEvents = events
     .slice(0)
@@ -157,7 +158,7 @@ const Timeline = React.memo((props: TimelineProps) => {
   const ImageBodyComponent = (imageBody || DefaultImageBody) as React.ComponentType<TimelineEventProps>;
   const TextBodyComponent = (textBody || DefaultTextBody) as React.ComponentType<TimelineEventProps>;
   const FooterComponent = (footer || DefaultFooter) as React.ComponentType<TimelineEventProps>;
-
+  const eventStyles = denseLayout ? { minHeight: 'auto' } : {};
   const timelineComposition = (
     <div className="rt-timeline-container">
       <ul className="rt-timeline">
@@ -166,7 +167,7 @@ const Timeline = React.memo((props: TimelineProps) => {
         </li>
         {sortedEvents.map((event, index) => {
           return (
-            <li className="rt-event" key={index}>
+            <li className='rt-event' key={index} style={eventStyles}>
               <div className="rt-backing">
                 <ArrowAndDot />
                 <div>
