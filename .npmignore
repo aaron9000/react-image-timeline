@@ -14,7 +14,6 @@ webpack.*%
 webpack.*
 public
 build
-index.d.ts
 tsconfig.sample
 tsconfig.json
 eslintrc.js
