@@ -1,6 +1,6 @@
 {
   "name": "react-image-timeline",
-  "version": "3.1.2",
+  "version": "3.1.3",
   "main": "index.js",
   "types": "index.d.ts",
   "homepage": "http://aaron9000.github.io/react-image-timeline",
