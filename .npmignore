@@ -14,3 +14,7 @@ webpack.*%
 webpack.*
 public
 build
+tsconfig.sample
+tsconfig.json
+eslintrc.js
+yarn.lock
