@@ -15,11 +15,16 @@ h5 {
   text-align: center;
 }
 
+.config-container {
+  display: flex;
+  justify-content: center;
+}
+
 .toggle-container {
   padding: 0.5em;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
-  width: 240px;
+  width: 320px;
   border: solid 1px lightgray;
 }
 

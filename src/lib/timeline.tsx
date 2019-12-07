@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useCallback } from 'react';
 
 export interface TimelineEventClickHandler {
   (event: any): void;
@@ -31,14 +31,14 @@ export interface TimelineProps {
   customComponents?: TimelineCustomComponents | null;
   events: Array<TimelineEvent>;
   reverseOrder?: boolean;
+  denseLayout?: boolean;
 }
-
 
 const isNonZeroArray = (a: Array<TimelineEvent>) => Array.isArray(a) && a.length > 0;
 
-const takeFirst = (a: Array<TimelineEvent>) => (isNonZeroArray(a) ? a[0] : {} as TimelineEvent);
+const takeFirst = (a: Array<TimelineEvent>) => (isNonZeroArray(a) ? a[0] : ({} as TimelineEvent));
 
-const takeLast = (a: Array<TimelineEvent>) => (isNonZeroArray(a) ? a[a.length - 1] : {} as TimelineEvent);
+const takeLast = (a: Array<TimelineEvent>) => (isNonZeroArray(a) ? a[a.length - 1] : ({} as TimelineEvent));
 
 const isValidDate = (date: Date) => {
   return date && date instanceof Date && !isNaN(date.getTime());
@@ -92,14 +92,13 @@ const DefaultHeader = React.memo(function DefaultHeader(props: TimelineEventProp
 });
 
 const DefaultFooter = React.memo(function DefaultFooter(props: TimelineEventProps) {
-  const handleClick = (e: MouseEvent) => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
     (props.event.onClick || (x => x))(e);
   };
 
   return (
-    // @ts-ignore
-    <button className="rt-btn" href="#" onClick={handleClick}>
+    <button className="rt-btn" onClick={handleClick}>
       {props.event.buttonText || ''}
     </button>
   );
@@ -113,10 +112,10 @@ const DefaultTextBody = React.memo(function DefaultTextBody(props: TimelineEvent
   );
 });
 
-const DefaultImageBody = React.memo(function DefaultImageBody(props: TimelineEventProps) {
+const DefaultImageBody = React.memo((props: TimelineEventProps) => {
   return (
     <div>
-      <img src={props.event.imageUrl} alt="" className="rt-image" />
+      <img src={props.event.imageUrl} className="rt-image" alt="" />
     </div>
   );
 });
@@ -134,9 +133,9 @@ const Clear = React.memo(function Clear(props) {
   return <li key="clear" className="rt-clear" />;
 });
 
-const Timeline = React.memo(function Timeline({ events, customComponents, reverseOrder }: TimelineProps) {
+const Timeline = React.memo((props: TimelineProps) => {
+  const { events, customComponents, reverseOrder, denseLayout } = props;
 
-  // Obey sorting
   const sortedEvents = events
     .slice(0)
     .filter(({ date }) => isValidDate(date))
@@ -146,21 +145,19 @@ const Timeline = React.memo(function Timeline({ events, customComponents, revers
         : new Date(a.date).getTime() - new Date(b.date).getTime();
     });
 
-  // Render nothing with empty events
   if (!sortedEvents.length) {
     return <div />;
   }
 
-  // Use custom component when provided
   const { topLabel, bottomLabel, header, footer, imageBody, textBody } = customComponents || {};
-  const TopComponent = (topLabel || DefaultTopLabel) as React.ComponentType<TimelineEventProps>;  
-  const BottomComponent = (bottomLabel || DefaultBottomLabel) as React.ComponentType<TimelineEventProps>;  
-  const HeaderComponent = (header || DefaultHeader) as React.ComponentType<TimelineEventProps>;  
-  const ImageBodyComponent = (imageBody || DefaultImageBody) as React.ComponentType<TimelineEventProps>;   
-  const TextBodyComponent = (textBody || DefaultTextBody) as React.ComponentType<TimelineEventProps>;  
-  const FooterComponent = (footer || DefaultFooter) as React.ComponentType<TimelineEventProps>;  
-
-  return (
+  const TopComponent = (topLabel || DefaultTopLabel) as React.ComponentType<TimelineEventProps>;
+  const BottomComponent = (bottomLabel || DefaultBottomLabel) as React.ComponentType<TimelineEventProps>;
+  const HeaderComponent = (header || DefaultHeader) as React.ComponentType<TimelineEventProps>;
+  const ImageBodyComponent = (imageBody || DefaultImageBody) as React.ComponentType<TimelineEventProps>;
+  const TextBodyComponent = (textBody || DefaultTextBody) as React.ComponentType<TimelineEventProps>;
+  const FooterComponent = (footer || DefaultFooter) as React.ComponentType<TimelineEventProps>;
+  const eventStyles = denseLayout ? { minHeight: 'auto' } : {};
+  const timelineComposition = (
     <div className="rt-timeline-container">
       <ul className="rt-timeline">
         <li key="top" className="rt-label-container">
@@ -168,10 +165,10 @@ const Timeline = React.memo(function Timeline({ events, customComponents, revers
         </li>
         {sortedEvents.map((event, index) => {
           return (
-            <li className="rt-event" key={index}>
+            <li className='rt-event' key={index} style={eventStyles}>
               <div className="rt-backing">
                 <ArrowAndDot />
-                <div className="rt-content">
+                <div>
                   <div className="rt-header-container">
                     <HeaderComponent event={event} />
                   </div>
@@ -196,6 +193,7 @@ const Timeline = React.memo(function Timeline({ events, customComponents, revers
       </ul>
     </div>
   );
+  return <div>{timelineComposition}</div>;
 });
 
 export default Timeline;

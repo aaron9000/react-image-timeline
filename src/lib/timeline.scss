@@ -1,6 +1,6 @@
 $max-image-height: 600px;
 $max-copy-height: 200px;
-$min-event-height: 620px;
+$min-event-height: $max-image-height + $max-copy-height;
 $dual-min-width: 600px;
 $max-width: 1600px;
 $arrow-width: 5%;
@@ -103,12 +103,12 @@ h2 {
   margin-top: 2em;
   margin-left: 0;
   margin-right: 0;
-  min-height: $min-event-height;
   list-style-type: none;
   display: block;
-
+  min-height: $min-event-height;
   @media all and (max-width: $dual-min-width) {
-    width: 85%;
+    min-height: auto;
+    width: 85%;    
     svg {
       display: none;
     }
@@ -187,9 +187,6 @@ li:nth-child(3) {
   font-weight: normal;
 }
 
-.rt-content {
-}
-
 .rt-header-container {
   color: white;
   padding: $padding * 0.5;
@@ -213,6 +210,7 @@ li:nth-child(3) {
   height: auto;
   max-width: 100%;
   max-height: $max-image-height;
+  object-fit: contain;
 }
 
 .rt-footer-container {

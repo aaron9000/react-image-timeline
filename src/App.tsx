@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { useState, useCallback } from 'react';
 import './App.css';
 import './lib/timeline.scss';
 import Timeline, { TimelineEvent, TimelineCustomComponents, TimelineProps, TimelineEventProps } from './lib/timeline';
+import placeholder from './assets/placeholder.png';
 // @ts-ignore
 import { getSampleData } from './data';
 
@@ -55,75 +56,78 @@ const CustomImageBody = (props: TimelineEventProps) => {
   );
 };
 
-interface ExampleProps {
+const TimelineExample = React.memo(
+  (
+    props: {},
+    state: {
+      events: Array<TimelineEvent>;
+      useCustomComponents: boolean;
+      reverseOrder: boolean;
+      denseLayout: boolean;
+      imageType: string;
+    }
+  ) => {
+    const [imageType, setImageType] = useState('normal');
+    const [events, setEvents] = useState(getSampleData(imageType));
+    const [useCustomComponents, setUseCustomComponents] = useState(false);
+    const [reverseOrder, setReverseOrder] = useState(false);
+    const [denseLayout, setDenseLayout] = useState(false);
 
-};
+    const onToggleReverseOrder = useCallback(() => setReverseOrder(!reverseOrder), [reverseOrder]);
+    const onToggleDenseLayout = useCallback(() => setDenseLayout(!denseLayout), [denseLayout]);
+    const onToggleUseCustomComponents = useCallback(() => setUseCustomComponents(!useCustomComponents), [
+      useCustomComponents,
+    ]);
+    const onToggleImageType = useCallback(() => {
+      const newImageType = imageType === 'normal' ? 'odd' : 'normal';
+      setImageType(newImageType);
+      setEvents(getSampleData(newImageType));
+    }, [imageType]);
 
-interface ExampleState {
-  events: Array<TimelineEvent>;
-  useCustomComponents: boolean;
-  reverseOrder: boolean;
-};
-
-class TimelineExample extends React.Component<ExampleProps, ExampleState> {
-  static displayName = 'TimelineExample';
-  static propTypes = {};
-
-  constructor(props: any) {
-    super(props);
-    this.state = {
-      events: getSampleData(),
-      useCustomComponents: false,
-      reverseOrder: false,
-    };
-  }
-
-  handleToggleUseCustomComponents(event: any) {
-    this.setState({ useCustomComponents: event.target.checked });
-  }
-  handleToggleReverseOrder(event: any) {
-    this.setState({ reverseOrder: event.target.checked });
-  }
-
-  render() {
-    const { events, useCustomComponents, reverseOrder } = this.state;
     const timeline = <Timeline events={events} reverseOrder={reverseOrder} />;
-    const customComponents = {
-      topLabel: CustomTopLabel,
-      bottomLabel: CustomBottomLabel,
-      header: CustomHeader,
-      imageBody: CustomImageBody,
-      textBody: CustomTextBody,
-      footer: CustomFooter,
-    } as TimelineCustomComponents;
-    const customTimeline = <Timeline events={events} customComponents={customComponents} reverseOrder={reverseOrder} />;
+    const customComponents = useCustomComponents
+      ? ({
+          topLabel: CustomTopLabel,
+          bottomLabel: CustomBottomLabel,
+          header: CustomHeader,
+          imageBody: CustomImageBody,
+          textBody: CustomTextBody,
+          footer: CustomFooter,
+        } as TimelineCustomComponents)
+      : null;
     return (
       <div>
         <div style={{ textAlign: 'center' }}>
-          <h1>React Image Timeline Example</h1>
+          <h1>React Image Timeline</h1>
           <h4>resize window to see mobile layout</h4>
         </div>
-        <div className="toggle-container">
-          <strong>Use Custom Components</strong>
-          <input
-            type="checkbox"
-            onChange={this.handleToggleUseCustomComponents.bind(this)}
-            checked={useCustomComponents}
-          />
-          <strong>Reverse Order</strong>
-          <input type="checkbox" onChange={this.handleToggleReverseOrder.bind(this)} checked={reverseOrder} />
+        <div className="config-container">
+          <div className="toggle-container">
+            <div>
+              <input type="checkbox" onChange={onToggleUseCustomComponents} checked={useCustomComponents} />
+              <strong>Use Custom Components</strong>
+            </div>
+            <div>
+              <input type="checkbox" onChange={onToggleReverseOrder} checked={reverseOrder} />
+              <strong>Reverse Order</strong>
+            </div>
+            <div>
+              <input type="checkbox" onChange={onToggleImageType} checked={imageType !== 'normal'} />
+              <strong>Non-unform Images</strong>
+            </div>
+            <div>
+              <input type="checkbox" onChange={onToggleDenseLayout} checked={denseLayout} />
+              <strong>Dense Layout</strong>
+            </div>
+          </div>
         </div>
         <hr />
-        {useCustomComponents ? customTimeline : timeline}
+        <Timeline events={events} customComponents={customComponents} reverseOrder={reverseOrder} denseLayout={denseLayout} />
       </div>
     );
   }
-}
+);
 
-class App extends Component {
-  render() {
-    return <TimelineExample />;
-  }
-}
+const App = TimelineExample;
 
 export default App;

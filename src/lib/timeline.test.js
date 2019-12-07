@@ -123,6 +123,31 @@ describe('<Timeline />', () => {
     });
   });
 
+  describe('Layout', () => {
+    it('renders dense layout with no minum height', () => {
+      const wrapper = shallow(<Timeline events={SHUFFLED_EVENTS} denseLayout={true}/>);
+      expect(
+        wrapper
+          .find('.rt-event')
+          .get(0)
+          .props
+          .style
+      ).to.deep.equal({ minHeight: 'auto' });
+    });
+
+    it('renders normal layout without a style override', () => {
+      const wrapper = shallow(<Timeline events={SHUFFLED_EVENTS} denseLayout={false}/>);
+      expect(
+        wrapper
+          .find('.rt-event')
+          .get(0)
+          .props
+          .style
+      ).to.deep.equal({});
+    });
+  });
+
+
   describe('Events', () => {
     it('renders events correctly', () => {
       const shallowWrapper = shallow(<Timeline events={SHUFFLED_EVENTS} />);
