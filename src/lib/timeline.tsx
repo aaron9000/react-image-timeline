@@ -157,7 +157,7 @@ const Timeline = React.memo((props: TimelineProps) => {
   const TextBodyComponent = (textBody || DefaultTextBody) as React.ComponentType<TimelineEventProps>;
   const FooterComponent = (footer || DefaultFooter) as React.ComponentType<TimelineEventProps>;
   const eventStyles = denseLayout ? { minHeight: 'auto' } : {};
-  const timelineComposition = (
+  return <div>
     <div className="rt-timeline-container">
       <ul className="rt-timeline">
         <li key="top" className="rt-label-container">
@@ -192,8 +192,7 @@ const Timeline = React.memo((props: TimelineProps) => {
         </li>
       </ul>
     </div>
-  );
-  return <div>{timelineComposition}</div>;
+  </div>;
 });
 
 export default Timeline;
