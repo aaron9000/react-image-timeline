@@ -1,8 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import './App.css';
 import './lib/timeline.scss';
-import Timeline, { TimelineEvent, TimelineCustomComponents, TimelineProps, TimelineEventProps } from './lib/timeline';
-import placeholder from './assets/placeholder.png';
+import Timeline, { TimelineEvent, TimelineCustomComponents, TimelineEventProps } from './lib/timeline';
 // @ts-ignore
 import { getSampleData } from './data';
 
@@ -84,7 +83,6 @@ const TimelineExample = React.memo(
       setEvents(getSampleData(newImageType));
     }, [imageType]);
 
-    const timeline = <Timeline events={events} reverseOrder={reverseOrder} />;
     const customComponents = useCustomComponents
       ? ({
           topLabel: CustomTopLabel,
