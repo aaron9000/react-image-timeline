@@ -23,7 +23,7 @@
     "react-scripts": "3.4.0",
     "sinon": "^7.2.3",
     "source-map-loader": "^0.2.4",
-    "svg-inline-loader": "^0.8.0",
+    "svg-inline-loader": "^0.8.2",
     "ts-loader": "^6.2.1",
     "typescript": "^3.6.4",
     "webpack-cli": "^3.2.1"
