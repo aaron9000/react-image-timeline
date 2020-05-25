@@ -72,7 +72,7 @@ ReactDOM.render(<Timeline events={events} customComponents={{header: CustomHeade
 
 ---
 
-#### Run Example Project (NOTE: you will need `create-react-app`)
+#### Run Example Project (you will need `create-react-app` to run)
 ```
 *install create-react-app*
 *clone repository*
