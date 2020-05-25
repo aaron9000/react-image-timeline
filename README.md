@@ -35,118 +35,11 @@ const events = [
         buttonText: 'Click Me',
         imageUrl: "http://github.com/aaron9000/react-image-timeline/blob/master/src/assets/cairo.jpg?raw=true",
         onClick: console.log,
-    },
-    {
-        date: new Date(2013, 9, 29),
-        text: "Sed leo elit, pellentesque sit amet congue quis, ornare nec lorem.",
-        title: "London, England",
-        buttonText: 'Click Me',
-        imageUrl: "http://github.com/aaron9000/react-image-timeline/blob/master/src/assets/london.jpg?raw=true",
-        onClick: console.log,
-    },
-    {
-        date: new Date(2013, 10, 3),
-        text: "Sed leo elit, pellentesque sit amet congue quis, ornare nec lorem.",
-        title: "Paris, France",
-        buttonText: 'Click Me',
-        imageUrl: "http://github.com/aaron9000/react-image-timeline/blob/master/src/assets/paris.jpg?raw=true",
-        onClick: console.log,
     }
 ];
 
 ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
 ```
-
-
-## Types
-
-Typescript definitions are available
-
-```js
-import {
-    TimelineProps, 
-    TimelineEventProps, 
-    TimelineEvent, 
-    TimelineCustomComponents
-} from 'react-image-timeline';
-```
-
-#### TimelineProps
-
-```js
-export interface TimelineProps {
-    customComponents?: TimelineCustomComponents | null;
-    events: Array<TimelineEvent>;
-    reverseOrder?: boolean;
-    denseLayout?: boolean;
-}
-```
-
-|                      Key |                     Type |                Required?
-|--------------------------|--------------------------|--------------------------|
-|                  events  |    Array<TimelineEvent>  |                     Yes  |
-|        customComponents  |TimelineCustomComponents  |                          |
-|            reverseOrder  |                 boolean  |                          |
-|             denseLayout  |                 boolean  |                          |
-
-#### TimelineCustomComponents
-
-```js
-export interface TimelineCustomComponents {
-    topLabel?: React.PureComponent<TimelineEventProps> | React.ReactNode | null;
-    bottomLabel?: React.PureComponent<TimelineEventProps> | React.ReactNode | null;
-    header?: React.PureComponent<TimelineEventProps> | React.ReactNode | null;
-    imageBody?: React.PureComponent<TimelineEventProps> | React.ReactNode | null;
-    textBody?: React.PureComponent<TimelineEventProps> | React.ReactNode | null;
-    footer?: React.PureComponent<TimelineEventProps> | React.ReactNode | null;
-}
-```
-
-|                      Key |                     Type |                Required?
-|--------------------------|--------------------------|--------------------------|
-|                topLabel  |               component  |                          |
-|             bottomLabel  |               component  |                          |
-|                  header  |               component  |                          |
-|               imageBody  |               component  |                          |
-|                textBody  |               component  |                          |
-|                  footer  |               component  |                          |
-
-#### TimelineEventProps
-
-```js
-export interface TimelineEventProps {
-    event: TimelineEvent;
-}
-```
-
-|                      Key |                     Type |                Required?
-|--------------------------|--------------------------|--------------------------|
-|                   event  |           TimelineEvent  |                     Yes  |
-
-#### TimelineEvent
-
-```js
-export interface TimelineEvent {
-    date: Date;
-    title: string;
-    imageUrl: string;
-    text: string;
-    onClick?: TimelineEventClickHandler | null;
-    buttonText?: string | null;
-    extras?: object | null;
-}
-```
-
-|                      Key |                     Type |                Required?
-|--------------------------|--------------------------|--------------------------|
-|                    date  |                    date  |                     Yes  |
-|                   title  |                  string  |                     Yes  |
-|                imageUrl  |                  string  |                     Yes  |
-|                    text  |                  string  |                     Yes  |
-|                 onClick  |                function  |                          |
-|              buttonText  |                  string  |                          |
-|                  extras  |                  object  |                          |
-
 
 ## Customization
 
@@ -192,3 +85,108 @@ yarn start
 *clone repository*
 yarn test
 ```
+
+
+
+## TypeScript & Models
+
+Typescript definitions are included in the library.
+
+---
+
+#### Importing TypeScript Definitions
+
+```js
+import {
+    TimelineProps, 
+    TimelineEventProps, 
+    TimelineEvent, 
+    TimelineCustomComponents
+} from 'react-image-timeline';
+```
+
+---
+
+#### TimelineProps
+
+```js
+export interface TimelineProps {
+    customComponents?: TimelineCustomComponents | null;
+    events: Array<TimelineEvent>;
+    reverseOrder?: boolean;
+    denseLayout?: boolean;
+}
+```
+
+|                      Key |                     Type |                Required?
+|--------------------------|--------------------------|--------------------------|
+|                  events  |    Array<TimelineEvent>  |                     Yes  |
+|        customComponents  |TimelineCustomComponents  |                          |
+|            reverseOrder  |                 boolean  |                          |
+|             denseLayout  |                 boolean  |                          |
+
+---
+
+#### TimelineCustomComponents
+
+```js
+export interface TimelineCustomComponents {
+    topLabel?: React.PureComponent<TimelineEventProps> | React.ReactNode | null;
+    bottomLabel?: React.PureComponent<TimelineEventProps> | React.ReactNode | null;
+    header?: React.PureComponent<TimelineEventProps> | React.ReactNode | null;
+    imageBody?: React.PureComponent<TimelineEventProps> | React.ReactNode | null;
+    textBody?: React.PureComponent<TimelineEventProps> | React.ReactNode | null;
+    footer?: React.PureComponent<TimelineEventProps> | React.ReactNode | null;
+}
+```
+
+|                      Key |                     Type |                Required?
+|--------------------------|--------------------------|--------------------------|
+|                topLabel  |               component  |                          |
+|             bottomLabel  |               component  |                          |
+|                  header  |               component  |                          |
+|               imageBody  |               component  |                          |
+|                textBody  |               component  |                          |
+|                  footer  |               component  |                          |
+
+---
+
+#### TimelineEventProps
+
+```js
+export interface TimelineEventProps {
+    event: TimelineEvent;
+}
+```
+
+|                      Key |                     Type |                Required?
+|--------------------------|--------------------------|--------------------------|
+|                   event  |           TimelineEvent  |                     Yes  |
+
+---
+
+#### TimelineEvent
+
+```js
+export interface TimelineEvent {
+    date: Date;
+    title: string;
+    imageUrl: string;
+    text: string;
+    onClick?: TimelineEventClickHandler | null;
+    buttonText?: string | null;
+    extras?: object | null;
+}
+```
+
+|                      Key |                     Type |                Required?
+|--------------------------|--------------------------|--------------------------|
+|                    date  |                    date  |                     Yes  |
+|                   title  |                  string  |                     Yes  |
+|                imageUrl  |                  string  |                     Yes  |
+|                    text  |                  string  |                     Yes  |
+|                 onClick  |                function  |                          |
+|              buttonText  |                  string  |                          |
+|                  extras  |                  object  |                          |
+
+
