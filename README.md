@@ -27,75 +27,19 @@ import ReactDOM from 'react-dom';
 import Timeline from 'react-image-timeline';
 require('react-image-timeline/dist/timeline.css'); // .scss also available
 
+const events = [
+    {
+        date: new Date(2013, 9, 27),
+        text: "Sed leo elit, pellentesque sit amet congue quis, ornare nec lorem.",
+        title: "Cairo, Egypt",
+        buttonText: 'Click Me',
+        imageUrl: "http://github.com/aaron9000/react-image-timeline/blob/master/src/assets/cairo.jpg?raw=true",
+        onClick: console.log,
+    }
+];
+
 ReactDOM.render(<Timeline events={events} />, document.getElementById('root'));
 ```
-
-##### Sample TimelineEvent
-```js
-{
-    date: new Date(2013, 9, 27),
-    text: "Sed leo elit, pellentesque sit amet congue quis, ornare nec lorem.",
-    title: "Cairo, Egypt",
-    buttonText: 'Click Me',
-    imageUrl: "http://github.com/aaron9000/react-image-timeline/blob/master/src/assets/cairo.jpg?raw=true",
-    onClick: () => {
-        console.log('hello');
-    }
-}
-```
-
-
-## Types
-
-Typescript definitions are available
-
-```js
-import {
-    TimelineProps, 
-    TimelineEventProps, 
-    TimelineEvent, 
-    TimelineCustomComponents
-} from 'react-image-timeline';
-```
-
-#### TimelineProps
-
-|                      Key |                     Type |                Required?
-|--------------------------|--------------------------|--------------------------|
-|                  events  |    Array<TimelineEvent>  |                     Yes  |
-|        customComponents  |TimelineCustomComponents  |                          |
-|            reverseOrder  |                 boolean  |                          |
-|             denseLayout  |                 boolean  |                          |
-
-#### TimelineCustomComponents
-
-|                      Key |                     Type |                Required?
-|--------------------------|--------------------------|--------------------------|
-|                topLabel  |               component  |                          |
-|             bottomLabel  |               component  |                          |
-|                  header  |               component  |                          |
-|               imageBody  |               component  |                          |
-|                textBody  |               component  |                          |
-|                  footer  |               component  |                          |
-
-#### TimelineEventProps
-
-|                      Key |                     Type |                Required?
-|--------------------------|--------------------------|--------------------------|
-|                   event  |           TimelineEvent  |                     Yes  |
-
-#### TimelineEvent
-
-|                      Key |                     Type |                Required?
-|--------------------------|--------------------------|--------------------------|
-|                    date  |                    date  |                     Yes  |
-|                   title  |                  string  |                     Yes  |
-|                imageUrl  |                  string  |                     Yes  |
-|                    text  |                  string  |                     Yes  |
-|                 onClick  |                function  |                          |
-|              buttonText  |                  string  |                          |
-|                  extras  |                  object  |                          |
-
 
 ## Customization
 
@@ -128,15 +72,122 @@ ReactDOM.render(<Timeline events={events} customComponents={{header: CustomHeade
 
 ---
 
-#### Run Example Project
+#### Run Example Project (you will need `create-react-app` to run)
 ```
+*install create-react-app*
 *clone repository*
-npm install
-npm run start
+yarn
+yarn --debug
+yarn start
 ```
 
 #### Run Tests
 ```
 *clone repository*
-npm run test
+yarn test
 ```
+
+
+
+## TypeScript & Models
+
+Typescript definitions are included in the library.
+
+---
+
+#### Importing TypeScript Definitions
+
+```js
+import {
+    TimelineProps, 
+    TimelineEventProps, 
+    TimelineEvent, 
+    TimelineCustomComponents
+} from 'react-image-timeline';
+```
+
+---
+
+#### TimelineProps
+
+```js
+export interface TimelineProps {
+    customComponents?: TimelineCustomComponents | null;
+    events: Array<TimelineEvent>;
+    reverseOrder?: boolean;
+    denseLayout?: boolean;
+}
+```
+
+|                      Key |                     Type |                Required?
+|--------------------------|--------------------------|--------------------------|
+|                  events  |    Array<TimelineEvent>  |                     Yes  |
+|        customComponents  |TimelineCustomComponents  |                          |
+|            reverseOrder  |                 boolean  |                          |
+|             denseLayout  |                 boolean  |                          |
+
+---
+
+#### TimelineCustomComponents
+
+```js
+export interface TimelineCustomComponents {
+    topLabel?: React.PureComponent<TimelineEventProps> | React.ReactNode | null;
+    bottomLabel?: React.PureComponent<TimelineEventProps> | React.ReactNode | null;
+    header?: React.PureComponent<TimelineEventProps> | React.ReactNode | null;
+    imageBody?: React.PureComponent<TimelineEventProps> | React.ReactNode | null;
+    textBody?: React.PureComponent<TimelineEventProps> | React.ReactNode | null;
+    footer?: React.PureComponent<TimelineEventProps> | React.ReactNode | null;
+}
+```
+
+|                      Key |                     Type |                Required?
+|--------------------------|--------------------------|--------------------------|
+|                topLabel  |               component  |                          |
+|             bottomLabel  |               component  |                          |
+|                  header  |               component  |                          |
+|               imageBody  |               component  |                          |
+|                textBody  |               component  |                          |
+|                  footer  |               component  |                          |
+
+---
+
+#### TimelineEventProps
+
+```js
+export interface TimelineEventProps {
+    event: TimelineEvent;
+}
+```
+
+|                      Key |                     Type |                Required?
+|--------------------------|--------------------------|--------------------------|
+|                   event  |           TimelineEvent  |                     Yes  |
+
+---
+
+#### TimelineEvent
+
+```js
+export interface TimelineEvent {
+    date: Date;
+    title: string;
+    imageUrl: string;
+    text: string;
+    onClick?: TimelineEventClickHandler | null;
+    buttonText?: string | null;
+    extras?: object | null;
+}
+```
+
+|                      Key |                     Type |                Required?
+|--------------------------|--------------------------|--------------------------|
+|                    date  |                    date  |                     Yes  |
+|                   title  |                  string  |                     Yes  |
+|                imageUrl  |                  string  |                     Yes  |
+|                    text  |                  string  |                     Yes  |
+|                 onClick  |                function  |                          |
+|              buttonText  |                  string  |                          |
+|                  extras  |                  object  |                          |
+
+

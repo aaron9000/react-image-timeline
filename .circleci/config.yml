@@ -6,7 +6,7 @@ jobs:
     parallelism: 1
     shell: /bin/bash --login
     docker:
-      - image: circleci/node:8.10
+      - image: circleci/node:10.20
     steps:
       - checkout
       - run: yarn

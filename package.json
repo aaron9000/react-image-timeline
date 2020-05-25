@@ -1,6 +1,6 @@
 {
   "name": "react-image-timeline",
-  "version": "3.2.7",
+  "version": "3.2.13",
   "main": "index.js",
   "types": "dist/timeline.d.ts",
   "homepage": "http://aaron9000.github.io/react-image-timeline",
@@ -16,7 +16,7 @@
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.8.0",
     "gh-pages": "^2.0.1",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.14.1",
     "ramda": "^0.26.1",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
@@ -26,7 +26,7 @@
     "svg-inline-loader": "^0.8.2",
     "ts-loader": "^6.2.1",
     "typescript": "^3.6.4",
-    "webpack-cli": "^3.2.1"
+    "webpack-cli": "^3.3.11"
   },
   "peerDependencies": {
     "react": "^16.0.0"
