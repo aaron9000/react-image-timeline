@@ -77,6 +77,7 @@ ReactDOM.render(<Timeline events={events} customComponents={{header: CustomHeade
 *install create-react-app*
 *clone repository*
 yarn
+yarn --debug
 yarn start
 ```
 
