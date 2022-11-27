@@ -1,8 +1,7 @@
 import React from 'react';
 import * as R from 'ramda';
 import sinon from 'sinon';
-import { expect } from 'chai';
-import { shallow, mount, render } from 'enzyme';
+import { render, screen, fireEvent } from '@testing-library/react';
 import Timeline from './timeline';
 
 const SHUFFLED_EVENTS = [
@@ -41,8 +40,6 @@ const SINGLE_INVALID_EVENT = [
 
 const MIXED_DATES = SINGLE_INVALID_EVENT.concat(SHUFFLED_EVENTS);
 
-const EMPTY_DIV = <div />;
-
 const CustomHeader = props => {
   return <div>*CustomHeader*</div>;
 };
@@ -70,164 +67,97 @@ const CustomBottomLabel = props => {
 describe('<Timeline />', () => {
 
   describe('State', () => {
-    it("receives 'extras' in 'events' prop", () => {
-      const wrapper = mount(<Timeline events={SHUFFLED_EVENTS} />);
-      const { extras } = R.head(wrapper.props().events);
-      expect(extras.foo).to.equal('bar');
-    });
-
     it('special cases 0 events', () => {
-      expect(shallow(<Timeline events={[]} />).contains(EMPTY_DIV)).to.equal(true);
+      render(<Timeline events={[]} />);
+      expect(screen.queryByText(/./)).toBeNull();
     });
 
     it('filters events with invalid dates', () => {
-      expect(shallow(<Timeline events={SINGLE_INVALID_EVENT} />).contains(EMPTY_DIV)).to.equal(true);
+      render(<Timeline events={SINGLE_INVALID_EVENT} />);
+      expect(screen.queryByText(/./)).toBeNull();
     });
 
     it('only filters invalid dates', () => {
-      expect(shallow(<Timeline events={MIXED_DATES} />).contains(EMPTY_DIV)).to.equal(false);
+      render(<Timeline events={MIXED_DATES} />);
+      expect(screen.queryAllByRole('heading')).toHaveLength(3);
     });
   });
-
   describe('Labels', () => {
     it('renders labels on the ends of the timeline', () => {
-      const wrapper = shallow(<Timeline events={SHUFFLED_EVENTS} />);
+      render(<Timeline events={SHUFFLED_EVENTS} />);
+      const listItems = screen.getAllByRole('listitem');
       expect(
-        wrapper
-          .find('li')
-          .first()
-          .html()
-      ).to.equal('<li class="rt-label-container"><div class="rt-label">2000</div></li>');
+        listItems[0]
+      ).toContainHTML('<li class="rt-label-container"><div class="rt-label">2000</div></li>');
       expect(
-        wrapper
-          .find('li')
-          .last()
-          .html()
-      ).to.equal('<li class="rt-label-container"><div class="rt-label">2010</div></li>');
+        listItems[listItems.length - 1]
+      ).toContainHTML('<li class="rt-label-container"><div class="rt-label">2010</div></li>');
     });
 
     it('renders reversed labels', () => {
-      const wrapper = shallow(<Timeline events={SHUFFLED_EVENTS} reverseOrder={true} />);
+      render(<Timeline events={SHUFFLED_EVENTS} reverseOrder={true} />);
+      const listItems = screen.getAllByRole('listitem');
       expect(
-        wrapper
-          .find('li')
-          .first()
-          .html()
-      ).to.equal('<li class="rt-label-container"><div class="rt-label">2010</div></li>');
+        listItems[0]
+      ).toContainHTML('<li class="rt-label-container"><div class="rt-label">2010</div></li>');
       expect(
-        wrapper
-          .find('li')
-          .last()
-          .html()
-      ).to.equal('<li class="rt-label-container"><div class="rt-label">2000</div></li>');
+        listItems[listItems.length - 1]
+      ).toContainHTML('<li class="rt-label-container"><div class="rt-label">2000</div></li>');
     });
   });
 
   describe('Layout', () => {
-    it('renders dense layout with no minum height', () => {
-      const wrapper = shallow(<Timeline events={SHUFFLED_EVENTS} denseLayout={true}/>);
+    it('renders dense layout with no minimum height', () => {
+      render(<Timeline events={SHUFFLED_EVENTS} denseLayout={true}/>);
       expect(
-        wrapper
-          .find('.rt-event')
-          .get(0)
-          .props
-          .style
-      ).to.deep.equal({ minHeight: 'auto' });
+        screen
+          .getAllByRole('listitem')[1]
+      ).toHaveStyle({ minHeight: 'auto' });
     });
-
     it('renders normal layout without a style override', () => {
-      const wrapper = shallow(<Timeline events={SHUFFLED_EVENTS} denseLayout={false}/>);
+      render(<Timeline events={SHUFFLED_EVENTS} denseLayout={false}/>);
       expect(
-        wrapper
-          .find('.rt-event')
-          .get(0)
-          .props
-          .style
-      ).to.deep.equal({});
+        screen
+          .getAllByRole('listitem')[1]
+      ).not.toHaveStyle({ minHeight: 'auto' });
     });
   });
 
-
   describe('Events', () => {
-    it('renders events correctly', () => {
-      const shallowWrapper = shallow(<Timeline events={SHUFFLED_EVENTS} />);
-      const deepWrapper = render(<Timeline events={SHUFFLED_EVENTS} />);
-      const assertClassCountDeep = (classes, count) => {
-        R.map(c => {
-          return expect(deepWrapper.find(c)).to.have.length(count);
-        }, classes);
-      };
-      const assertClassCountShallow = (classes, count) => {
-        R.map(c => {
-          return expect(shallowWrapper.find(c)).to.have.length(count);
-        }, classes);
-      };
-      assertClassCountShallow(['.rt-timeline', '.rt-timeline-container'], 1);
-      assertClassCountDeep(['.rt-label-container'], 2);
-      assertClassCountDeep(
-        [
-          '.rt-event',
-          '.rt-btn',
-          '.rt-image-container',
-          '.rt-text-container',
-          '.rt-header-container',
-          '.rt-footer-container',
-        ],
-        R.length(SHUFFLED_EVENTS)
-      );
-    });
-
     it('events call onClick when clicked', () => {
       const onClick = sinon.spy();
       const spiedEvents = R.map(event => {
-        return R.merge(event, { onClick });
+        return R.mergeRight(event, { onClick });
       }, SHUFFLED_EVENTS);
-      const wrapper = mount(<Timeline events={spiedEvents} />);
-      wrapper
-        .find('button')
-        .first()
-        .simulate('click');
-      expect(onClick.calledOnce).to.equal(true);
+      render(<Timeline events={spiedEvents} />);
+      fireEvent(screen
+        .getAllByRole('button')[0], new MouseEvent('click', {bubbles: true, cancelable: true}))
+      expect(onClick.calledOnce).toBe(true);
     });
 
     it('renders events in order with unordered data', () => {
-      const wrapper = shallow(<Timeline events={SHUFFLED_EVENTS} />);
+      render(<Timeline events={SHUFFLED_EVENTS} />);
+      const listItems = screen.getAllByText(/(FIRST)|(LAST)/);
       expect(
-        wrapper
-          .find('.rt-event')
-          .first()
-          .html()
-          .indexOf('FIRST')
-      ).to.be.above(-1);
+        listItems[0]
+      ).toHaveTextContent('FIRST');
       expect(
-        wrapper
-          .find('.rt-event')
-          .last()
-          .html()
-          .indexOf('LAST')
-      ).to.be.above(-1);
+        listItems[listItems.length - 1]
+      ).toHaveTextContent('LAST');
     });
-
     it('renders events in reverse-order with unordered data', () => {
-      const wrapper = shallow(<Timeline events={SHUFFLED_EVENTS} reverseOrder={true} />);
+      render(<Timeline events={SHUFFLED_EVENTS} reverseOrder={true} />);
+      const listItems = screen.getAllByText(/(FIRST)|(LAST)/);
       expect(
-        wrapper
-          .find('.rt-event')
-          .first()
-          .html()
-          .indexOf('LAST')
-      ).to.be.above(-1);
+        listItems[0]
+      ).toHaveTextContent('LAST');
       expect(
-        wrapper
-          .find('.rt-event')
-          .last()
-          .html()
-          .indexOf('FIRST')
-      ).to.be.above(-1);
+        listItems[listItems.length - 1]
+      ).toHaveTextContent('FIRST');
     });
   });
-
   describe('Custom Components', () => {
+
     it('renders custom components', () => {
       const CUSTOM_COMPONENTS = {
         topLabel: CustomTopLabel,
@@ -237,28 +167,15 @@ describe('<Timeline />', () => {
         textBody: CustomTextBody,
         footer: CustomFooter,
       };
-      const wrapper = render(<Timeline events={SHUFFLED_EVENTS} customComponents={CUSTOM_COMPONENTS} />);
+      render(<Timeline events={SHUFFLED_EVENTS} customComponents={CUSTOM_COMPONENTS} />);
 
-      const firstLabelHtml = wrapper
-        .find('.rt-label-container')
-        .first()
-        .html();
-      expect(firstLabelHtml.indexOf('*CustomTopLabel*')).to.be.above(-1);
+      expect(screen.getByText('*CustomTopLabel*'));
+      expect(screen.getByText('*CustomBottomLabel*'));
 
-      const lastLabelHtml = wrapper
-        .find('.rt-label-container')
-        .last()
-        .html();
-      expect(lastLabelHtml.indexOf('*CustomBottomLabel*')).to.be.above(-1);
-
-      const eventHtml = wrapper
-        .find('.rt-event')
-        .first()
-        .html();
-      expect(eventHtml.indexOf('*CustomHeader*')).to.be.above(-1);
-      expect(eventHtml.indexOf('*CustomImageBody*')).to.be.above(-1);
-      expect(eventHtml.indexOf('*CustomTextBody*')).to.be.above(-1);
-      expect(eventHtml.indexOf('*CustomFooter*')).to.be.above(-1);
+      expect(screen.getAllByText('*CustomHeader*')).toHaveLength(3);
+      expect(screen.getAllByText('*CustomImageBody*')).toHaveLength(3);
+      expect(screen.getAllByText('*CustomTextBody*')).toHaveLength(3);
+      expect(screen.getAllByText('*CustomFooter*')).toHaveLength(3);
     });
   });
 });

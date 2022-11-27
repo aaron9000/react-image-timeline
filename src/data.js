@@ -127,7 +127,7 @@ export function getSampleData(imageType) {
   const cities = getCitiesWithImages(imageType);
   const mapWithIndex = R.addIndex(R.map);
   return mapWithIndex((location, index) => {
-    return R.merge(
+    return R.mergeRight(
       {
         date: addDays(new Date('2013-12-08'), index * 8),
         text: randomText(),
