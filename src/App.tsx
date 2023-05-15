@@ -91,7 +91,7 @@ const TimelineExample = React.memo(
           imageBody: CustomImageBody,
           textBody: CustomTextBody,
           footer: CustomFooter,
-        } as TimelineCustomComponents)
+        } as unknown)
       : null;
     return (
       <div>
@@ -120,7 +120,7 @@ const TimelineExample = React.memo(
           </div>
         </div>
         <hr />
-        <Timeline events={events} customComponents={customComponents} reverseOrder={reverseOrder} denseLayout={denseLayout} />
+        <Timeline events={events} customComponents={customComponents as TimelineCustomComponents} reverseOrder={reverseOrder} denseLayout={denseLayout} />
       </div>
     );
   }

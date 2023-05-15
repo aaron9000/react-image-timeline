@@ -14,7 +14,7 @@ export interface TimelineEvent {
   extras?: object | null;
 }
 
-export interface TimelineEventProps {
+export interface TimelineEventProps extends React.ComponentPropsWithoutRef<"div"> {
   event: TimelineEvent;
 }
 
