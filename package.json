@@ -1,5 +1,5 @@
 {
-  "name": "react-image-timeline",
+  "name": "react-img-timeline",
   "version": "3.2.14",
   "main": "index.js",
   "types": "dist/timeline.d.ts",
@@ -28,7 +28,7 @@
     "webpack-cli": "^4.10.0"
   },
   "peerDependencies": {
-    "react": "^18.2.0"
+    "react": "16.x || 17.x || 18.x"
   },
   "scripts": {
     "start": "react-scripts start",
