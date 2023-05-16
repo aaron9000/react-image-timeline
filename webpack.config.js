@@ -5,7 +5,6 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "timeline.js",
-    library: 'react-img-timeline',
     libraryTarget: 'commonjs2'
   },
   mode: "production",
